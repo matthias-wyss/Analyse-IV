@@ -9,7 +9,7 @@ On appelle rayon de convergence le plus grand $\epsilon > 0$ possible tel que $f
 \textbf{Théorème :} Soit $\Omega\in\mathbb{C}$ ouvert, $f : \Omega\to\mathbb{C}$ holomorphe, $z_0\in\Omega$, $\epsilon>0$\\
 $\mathcal{B}_{\epsilon}(z_0) = \{z_0\in\mathbb{C}, |z-z_0|<\epsilon\}\subset\Omega$\\
 Alors, $f$ est analytique dans $\mathcal{B}_\epsilon(z_0)$, c'est à dire :
-$$f(z) = \sum_{n=0}^{\infty}c_n(z-z_0)^n \quad \forall z \in \mathcal{B}_\epsilon(z_0) \text{, avec } c_n = \frac{f^{(n)(z_0)}}{n!}$$
+$$f(z) = \sum_{n=0}^{\infty}c_n(z-z_0)^n \quad \forall z \in \mathcal{B}_\epsilon(z_0) \text{, avec } c_n = \frac{f^{(n)}(z_0)}{n!}$$
 
 \subsection{Remarques}
 \begin{enumerate}
@@ -43,8 +43,8 @@ Alors $f$ admet un développement en série de Laurent, c'est à dire $\exists\e
 \textbf{Définitions :}
 \begin{enumerate}
     \item $L_{z_0}f(z) = \sum_{n=-\infty}^{\infty}c_n(z-z_0)^n$ est la série de Laurent de $f$ en $z_0$
-    \item $\sum_{n=0}^{\infty}c_n(z-z_0)$ est la partie régulière de la série de Laurent
-    \item $\sum_{-\infty}^{-1}c_n(z-z_0)$ est la partie singulière de la série de Laurent
+    \item $\sum_{n=0}^{\infty}c_n(z-z_0)^n$ est la partie régulière de la série de Laurent
+    \item $\sum_{n=-\infty}^{-1}c_n(z-z_0)^n$ est la partie singulière de la série de Laurent
     \item Le coefficient $c_{-1}$ est le résidu de $f$ en $z_0$, on le note $c_{-1} = Res_{z_0}(f)$
     \item Le rayon de convergence $R>0$ est le plus grand $\epsilon$ tel que
     $$f(z) = L_{z_0}f(z) \quad \text{, } \forall z \in \mathcal{B}_R(z_0) \setminus \{z_0\}$$
