@@ -1,0 +1,57 @@
+\subsection{Nature des singularités et série de Laurent}
+Trouver les singularités d’une fonction complexe, déterminer leur nature (donner l’ordre si il s’agit d’un pôle) et donner la série de Laurent/Taylor et son rayon de convergence. \\
+(Série 5 exercice 2, série 6 exercice 2, série 7 exercice 1) \\
+\\
+\textbf{Méthodologie :}
+\begin{itemize}
+    \item On essaye de reconnaître une forme connue de série de Taylor d'une partie de $f(z)$
+    \item On simplifie, change les indices
+    \item Si la partie singulière de $L_{z_0}f(z)$ admet une infinité de termes, alors $z_0$ est une SEI
+    \item Si la partie singulière de $L_{z_0}f(z)$ vaut $0$ (si la série de Laurent est égale à la série de Taylor), alors $z_0$ est un point régulier
+    \item Si la partie singulière de $L_{z_0}f(z)$ commence à la puissance $-m$, alors $z_0$ est un pôle d'ordre $m$
+    \item Le rayon de convergence $R > 0$ est le plus grand $\epsilon$ tel que
+    $$f(z) = L_{z_0}f(z) \quad \text{, } \forall z \in \mathcal{B}_R(z_0) \setminus \{z_0\}$$
+\end{itemize}
+\textbf{Exemple :} (série 6 exercice 2a, 2d, 2g) \\
+Pour chaque fonction $f(z)$, déterminer la série de Laurent au voisinage de $z_0$, préciser le rayon de convergence, déterminer la nature du point $z_0$ et trouver le résidu de la fonction en $z_0$
+\begin{enumerate}
+    \item[a)] $f(z) = z^2 e^{\frac{1}{z}}$, $z_0 = 0$ \\
+    On connaît la série de Taylor de $e^z$ en $0$ :
+    $$e^z = \sum_{n=0}^{\infty} = \frac{z^n}{n!}$$
+    qui converge $\forall z \in \mathbb{C}$ \\
+    La série de Laurent en $0$ est donc :
+    \begin{align*}
+        L_{z_0}f(z) &= z^2 \sum_{n=0}^{\infty} \frac{(\frac{1}{z})^{^n}}{n!} \\
+        &= z^2 \sum_{n=0}^{\infty} \frac{z^{-n}}{n!} \\
+        &= \sum_{n=0}^{\infty} \frac{z^{-n+2}}{n!} \\
+        &= \sum_{m=-2}^{\infty} \frac{z^{-m}}{(m+2)!} \quad (m=n-2) \\
+        &= z^2 + z + \frac{1}{2!} + \frac{z^{-1}}{3!} + \frac{z^{-2}}{4!} + ... \\
+        &= z^2 + z + \frac{1}{2} + \sum_{n=1}^{\infty} \frac{z^{-n}}{(n+2)!}
+    \end{align*}
+    et elle converge $\forall z \neq 0$ \\
+    la partie singulière de $L_{z_0}f(z)$ admet une infinité de termes donc $z_0$ est une SEI \\
+    Le résidu de $f$ en $z_0$ est $Res_{z_0}(f) = \frac{1}{3!} = \frac{1}{6}$
+    \item[d)] $f(z) = \frac{\sin(z)}{(z-\pi)^2}$ , $z_0 = \pi$ \\
+    On a :
+    $$f(z) = \frac{-\sin(z-\pi)}{(z-\pi)^2}$$
+    On connaît la série de Taylor de $\sin(z)$ en $0$ :
+    $$\sin(z) = \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)!}z^{(2n+1)}$$
+    qui converge $\forall z \in \mathbb{C}$ \\
+    La série de Laurent en $z_0$ est donc :
+    \begin{align*}
+        L_{z_0}f(z) &= \frac{-1}{(z-\pi)^2} \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)!}(z-\pi)^{(2n+1)} \\
+        &= -\sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)!}(z-\pi)^{(2n-1)} \\
+        &= -(z-\pi)^{-1} - \sum_{n=1}^{\infty} \frac{(-1)^n}{(2n+1)!}(z-\pi)^{(2n-1)}
+    \end{align*}
+    et elle converge $\forall z \neq \pi$ \\
+    la partie singulière de $L_{z_0}f(z)$ commence à la puissance $-1$ donc $z_0$ est un pôle d'ordre $1$ \\
+    Le résidu de $f$ en $z_0$ est $Res_{z_0}(f) = -1$
+    \item[g)] $f(z) = \frac{z^2+2z+1}{z+1}$, $z_0 = -1$ \\
+    On a :
+    $$f(z) = \frac{(z+1)^2}{z+1} = z+1$$
+    La série de Laurent en $-1$ est donc :
+    $$L_{z_0}(f) = 1 + z$$
+    qui converge $\forall z \in \mathbb{C} : R = \infty$ \\
+    la partie singulière de $L_{z_0}f(z)$ vaut $0$ donc $z_0$ est un point régulier \\
+    Le résidu de $f$ en $z_0$ est $Res_{z_0}(f) = 0$
+\end{enumerate}

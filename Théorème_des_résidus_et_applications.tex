@@ -1,0 +1,36 @@
+\section{Théorème des résidus et applications}
+\subsection{Formule à résidu}
+Soit $\Omega \in \mathbb{C}$ ouvert, $z_0 \in \mathbb{C}$ \\
+$f : \Omega \setminus \{z_0\} \to \mathbb{C}$ holomorphe, avec $z_0$ pôle d'ordre $m \geq 1$
+$$\frac{1}{(m-1)!}\frac{d^{(m-1)}}{dz}(f(z)(z-z_0)^m)\bigg{|}_{z=z_0} = Res_{z_0}(f)$$
+
+\subsection{Théorème des résidus}
+\textbf{Théorème :} Soit $\Omega \subset \mathbb{C}$ ouvert, $z_1,z_2,...,z_n \in \mathbb{C}$ \\
+$f : \Omega \setminus \{z_1,...,z_n\} \to \mathbb{C}$ holomorphe, avec $z_1,...,z_n$ des pôles de f \\
+$\Gamma \subset \Omega$ une courbe fermée régulière par morceaux, $int(\Gamma) \cup \Gamma \subset \Omega$ \\
+Alors :
+$$\int_{\Gamma}f(z)dz = 2\pi i \sum_{z_i \in int(\Gamma)}Res_{z_i}(f)$$
+\textbf{Remarque :} Ce résultat généralise le théorème de Cauchy et la FIC
+
+\subsection{Propositions}
+\textbf{Propositions :}
+\begin{enumerate}
+    \item Si $\Gamma \subset \mathbb{C}$ une courbe régulière, $f : \Gamma \to \mathbb{C}$ continue \\
+    Alors :
+    $$\bigg{|} \int_{\Gamma}f(z)dz \bigg{|} \leq \int_a^b|f(\gamma(t))|.|\gamma'(t)|dt$$
+    où $\gamma : [a;b] \to \Gamma$ une paramétrisation de $\Gamma$
+    \item Soit $f(z) = \frac{p(z)}{q(z)}$, où $p$ et $q$ sont des fonctions holomorphes au voisinage de $z_0 \in \mathbb{C}$ et telles que $p(z_0) \neq 0$, $q(z_0)=0$ mais $q'(z_0) \neq 0$ \\
+    Alors :
+    $$Res_{z_0}(f) = \frac{p(z_0)}{q'(z_0)}$$
+\end{enumerate}
+
+\subsection{Remarque}
+\textbf{Remarque :} On peut généraliser la méthode de résolution avec le demi-cercle pour les intégrales de la forme : 
+$$\int_{-\infty}^{\infty}\frac{N(x)}{D(x)}e^{i\alpha x} dx$$
+Avec $N(x), D(x)$ des polynômes tels que $deg(D)-deg(N) \geq 2$ \\
+On doit choisir le demi-cercle $\Gamma_R$ en fonction du signe de $\alpha$ :
+\begin{itemize}
+    \item Si $\alpha > 0 : \Gamma_R$ le demi-cercle supérieur
+    \item Si $\alpha < 0 : \Gamma_R$ le demi-cercle inférieur (\faExclamationTriangle\hspace{1pt} orientation)
+    \item Si $\alpha = 0 :$ peu importe
+\end{itemize}

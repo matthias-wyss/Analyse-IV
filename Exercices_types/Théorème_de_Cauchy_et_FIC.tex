@@ -1,0 +1,69 @@
+\subsection{Théorème de Cauchy et FIC}
+Appliquer le théorème de Cauchy et la formule intégrale de Cauchy pour déterminer l’intégrale complexe d’une fonction holomorphe sur une courbe fermée. \\
+(Série 3 exercices 3, 4 et 5, série 4 exercices 1, 2 et 3)\\
+\\
+\textbf{Méthodologie :}
+On veut calculer $I = \int_{\Gamma} f(z)dz$
+\begin{itemize}
+    \item Si on a $f(z)$ holomorphe sur $int(\Gamma) \cup \Gamma$, alors par le théorème de Cauchy on a $I = 0$
+    \item Sinon on essaye d'obtenir $I$ de la forme :
+    $$I = \int_{\Gamma} \frac{\widetilde{f}(z)}{(z-z_0)^{n+1}}dz$$
+    avec $\widetilde{f}$ holomorphe sur $int(\Gamma) \cup \Gamma$ et $z_0 \in int(\Gamma)$ \\
+    Par la FIC (BIS) on obtient alors :
+    $$I = 2\pi i \frac{\widetilde{f}^{(n)}(z_0)}{n!}$$
+    \item Mais si $z_0 \in \Gamma$, alors $I$ n'est pas bien définie
+\end{itemize}
+\textbf{Exemple :} (série 4 exercice 2) \\
+Calculer
+$$I = \int_{\Gamma} \frac{e^{z^2}}{(z-1)^2(z^2+4)}dz$$
+lorsque :
+\begin{itemize}
+    \item[a)] $\Gamma$ est le cercle de rayon 1 centré en $z=1$ \\
+    $I$ est de la forme :
+    $$I = \int_{\Gamma} \frac{f(z)}{(z-z_0)^{n+1}}dz$$
+    avec $f(z) = \frac{e^{z^2}}{z^2+4}$ qui est holomorphe sur $int(\Gamma) \cup \Gamma$, $z_0 = 1 \in int(\Gamma)$, $n=1$ \\
+    On calcule la dérivée $f'(z)$ :
+    $$f'(z) = \frac{2ze^{z^2}(z^2+3)}{(z^2+4)^2}$$
+    Par la FIC (BIS) on obtient :
+    \begin{align*}
+        I &= 2\pi i f'(z_0) \\
+        &= 2\pi i f'(1) \\
+        &= 2\pi i \frac{2e(1+3)}{(1+4)^2} \\
+        &= 2\pi i \frac{8e}{25} \\
+        &= \frac{16e}{25}\pi i
+    \end{align*}
+    \item[b)] $\Gamma$ est le bord du rectangle $[-\frac{1}{2}, \frac{1}{2}] \times [0,4]$ \\
+    On a $1 \notin int(\Gamma)$, on doit donc changer de forme \\
+    $z^2+4 = (z+2i)(z-2i)$ \\
+    $I$ est maintenant de la forme :
+    $$I = \int_{\Gamma} \frac{f(z)}{z-z_0}dz$$
+    avec $f(z) = \frac{e^{z^2}}{(z-1)^2(z+2i)}$ qui est holomorphe sur $int(\Gamma) \cup \Gamma$, $z_0 = 2i \in int(\Gamma)$ \\
+    Par la FIC on obtient : 
+    \begin{align*}
+        I &= 2\pi i f(z_0) \\
+        &= 2\pi i f(2i) \\
+        &= 2\pi i \frac{e^{(2i)^2}}{(2i-1)^2(2i+2i)} \\
+        &= \frac{2\pi i e^{-4}}{(-3-4i)4i} \\
+        &= \frac{-\pi e^{-4}}{2(3+4i)}
+    \end{align*}
+    \item[c)] $\Gamma$ est le bord du rectangle $[-2,0] \times [-1,1]$
+    $f(z) = \frac{e^{z^2}}{(z-1)^2(z^2+4)}$ est holomorphe sur $int(\Gamma) \cup \Gamma$ \\
+    Par le théorème de Cauchy, on a $I = 0$
+\end{itemize}
+\textbf{Exemple :} (série 4 exercice 3b) \\
+Soit $\Gamma \subset \mathbb{C}$ une courbe simple, fermée et régulière par morceaux. Discuter, en fonction de $\Gamma$, la valeur de l'intégrale :
+$$I = \int_{\Gamma} \frac{5z^2-3z+2}{(z-1)^3}dz$$
+$I$ est de la forme :
+    $$I = \int_{\Gamma} \frac{f(z)}{(z-z_0)^{n+1}}dz$$
+avec $f(z) = 5z^2-3z+2$ qui est holomorphe, $z_0 = 1 \in int(\Gamma)$, $n=2$ \\
+On calcule la dérivée seconde : $f''(z) =10$
+\begin{itemize}
+    \item Si $z_0 \in int(\Gamma)$, alors par la FIC (BIS) on obtient :
+    \begin{align*}
+        I &= 2\pi i f''(z_0) \\
+        &= 2\pi i f''(1) \\
+        &= 20\pi i
+    \end{align*}
+    \item Si $z_0 \notin int(\Gamma) \cup \Gamma$, alors par le théorème de Cauchy on a $I = 0$
+    \item Si $z_0 \in \Gamma$, alors $I$ n'est pas bien définie
+\end{itemize}

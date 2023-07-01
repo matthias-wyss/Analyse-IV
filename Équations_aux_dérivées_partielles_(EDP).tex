@@ -1,0 +1,100 @@
+\section{Équations aux dérivées partielles (EDP)}
+\subsection{Notations}
+Soit $u = u(x,t) \quad x,t \in \mathbb{R}$ \\
+$$u_x = \frac{\partial u}{\partial x} \quad \text{, } u_t = \frac{\partial u}{\partial t} \quad \text{, } u_{xx} = \frac{\partial^2 u}{\partial x^2}$$
+
+\subsection{Distinctions}
+\begin{itemize}
+    \item Équations différentielles ordinaires (EDO) : la dérivée ne porte que sur une seule variable \\
+    Exemple :
+    $$u''(t)+3u(t) = sin(t)$$
+    \item Équations différentielles partielles (EDP) : la dérivée porte sur plusieurs variables \\
+    Exemples :
+    \begin{enumerate}
+        \item L'équation de la chaleur :
+        $$
+        \begin{cases}
+            u = u(x,t) \quad \text{, }t > 0 \quad \text{, }x \in \mathbb{R} \\
+            u_t = c^2u_{xx}
+        \end{cases}
+        $$
+        \item L'équation des ondes :
+        $$
+        \begin{cases}
+            u = u(x,t) \quad \text{, }t > 0 \quad \text{, }x \in \mathbb{R} \\
+            u_{tt} = c^2u_{xx}
+        \end{cases}
+        $$
+        \item L'équation de Laplace :
+        $$
+        \begin{cases}
+            u = u(x,y) \quad \text{, }x,y \in \mathbb{R} \\
+            u_{xx} + u_{yy} = 0
+        \end{cases}
+        $$
+    \end{enumerate}
+\end{itemize}
+
+\subsection{Méthodes de résolution des EDP}
+\begin{enumerate}
+    \item Séparation des variables
+    \item \begin{itemize}
+        \item Avec les séries de Fourier
+        \item Avec Sturm-Liouville
+    \end{itemize}
+\end{enumerate}
+
+\subsection{Rappels : Transformée de Fourier}
+Soit $f : \mathbb{R} \to \mathbb{R}$ , $\int_{-\infty}^{\infty} |f(x)|dx < \infty$
+\begin{enumerate}
+    \item La transformée de Fourier est définie par : 
+    $$\mathcal{F}(f)(\alpha) = \widehat{f}(\alpha) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} f(x) e^{-i\alpha x} dx$$
+    \item Si $\int_{-\infty}^{\infty} |f(\alpha)| d\alpha < \infty$, alors la transformée inverse de Fourier est définie par :
+    $$f(x) = \mathcal{F}^{-1}(\widehat{f})(x) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} \widehat{f}(\alpha) e^{i\alpha x} d\alpha$$
+    \item Transformée de Fourier de la dérivée :
+    $$\mathcal{F}(f')(\alpha) = (i\alpha) \mathcal{F}(f)(\alpha) = i\alpha \widehat{f}(\alpha)$$
+\end{enumerate}
+
+\subsection{Équation de la chaleur}
+\begin{itemize}
+    \item Équation de la chaleur dans une barre de longueur finie : \\
+    \textbf{Proposition :} Soit $c \neq 0$, $L > 0$, $f : [0;L] \to \mathbb{R}$ \\
+    Le problème de l'équation de la chaleur dans une barre de longueur finie :
+    $$
+    \begin{cases}
+        u_t(x,t) = c^2u_{xx}(x,t) \quad &\text{, }x \in ]0;L[\text{, }t \geq 0 \\
+        u(0,t) = u(L,t) = 0 \quad &\text{, }t \geq 0 \\
+        u(x,0) = f(x) \quad &\text{, }x \in ]0;L[
+    \end{cases}
+    $$
+    admet comme solution :
+    $$u(x,t) = \sum_{n=1}^{\infty}\beta_n \sin \bigg{(} \frac{n\pi}{L}x \bigg{)} e^{-(\frac{cn\pi}{L})^{^2} t}$$
+    avec $\beta_n$ les coefficients de Fourier en sinus :
+    $$\beta_n = \frac{2}{L} \int_0^Lf(x) \sin \bigg{(} \frac{n\pi}{L}x \bigg{)}$$
+    \item Équation de la chaleur dans une barre de longueur infinie : \\
+    \textbf{Proposition :} Soit $c \neq 0$, $f : \mathbb{R} \to \mathbb{R}$ \\
+    Le problème de l'équation de la chaleur dans une barre de longueur infinie :
+    $$
+    \begin{cases}
+        u_t(x,t) = c^2u_{xx}(x,t) \quad &\text{, }x \in \mathbb{R} \text{, }t > 0 \\
+        u(x,0) = f(x) \quad &\text{, }x \in \mathbb{R}
+    \end{cases}
+    $$
+    admet comme solution :
+    $$u(x,t) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} \widehat{f}(\alpha) e^{i\alpha x - c^2\alpha^2t} d\alpha$$
+\end{itemize}
+
+\subsection{Équation des ondes}
+\textbf{Proposition :} Soit $c \in \mathbb{R}^*$, $L > 0$, $f,g : [0;L] \to \mathbb{R}$, des fonctions $\mathcal{C}^3$ telles que $f(0) = f(L) = 0$, $g(0) = g(L) = 0$\\
+Le problème :
+$$
+\begin{cases}
+    u_{tt}(x,t) = c^2u_{xx}(x,t) \quad &\text{, } x \in ]0;L[ \to \mathbb{R} \text{, } t > 0 \\
+    u_x(0,t) = u_x(L,t) = 0 \quad &\text{, } t > 0 \\
+    u(x,0) = f(x) \\
+    u_t(x,0) = g(x)
+\end{cases}
+$$
+admet comme solution :
+$$u(x,t) = \sum_{n=1}^{\infty} \bigg{[} \alpha_n \cos \bigg{(} \frac{n\pi c}{L}t \bigg{)} + \beta_n \sin \bigg{(} \frac{n\pi c}{L}t \bigg{)} \bigg{]} \sin \bigg{(} \frac{n\pi}{L}x \bigg{)}$$
+avec $\alpha_n$ et $\beta_n$ les coefficients de Fourier en sinus de $f(x)$ et $g(x)$ respectivement

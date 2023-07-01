@@ -1,0 +1,72 @@
+\section{Les séries de Laurent}
+\subsection{Rappel : Rayon de convergence}
+Soit $f\in\mathcal{C}^{\infty}(I)\subset\mathbb{R}$\\
+On dit que $f$ est analytique sur $I$ si $\forall x_0 \in I$ , $\exists \epsilon > 0$, telle que
+$$f(x) = \sum_{n=0}^{\infty}\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n \quad \forall x \in ]x_0-\epsilon;x_0+\epsilon[$$
+On appelle rayon de convergence le plus grand $\epsilon > 0$ possible tel que $f(x) = T_{x_0}(f)$
+
+\subsection{Théorème}
+\textbf{Théorème :} Soit $\Omega\in\mathbb{C}$ ouvert, $f : \Omega\to\mathbb{C}$ holomorphe, $z_0\in\Omega$, $\epsilon>0$\\
+$\mathcal{B}_{\epsilon}(z_0) = \{z_0\in\mathbb{C}, |z-z_0|<\epsilon\}\subset\Omega$\\
+Alors, $f$ est analytique dans $\mathcal{B}_\epsilon(z_0)$, c'est à dire :
+$$f(z) = \sum_{n=0}^{\infty}c_n(z-z_0)^n \quad \forall z \in \mathcal{B}_\epsilon(z_0) \text{, avec } c_n = \frac{f^{(n)(z_0)}}{n!}$$
+
+\subsection{Remarques}
+\begin{enumerate}
+    \item Par la FIC, on peut exprimer $c_n$ ainsi :
+    $$c_n = \frac{1}{2\pi}\int_{\Gamma}\frac{f(z_0)}{(z-z_0)^{n+1}}dz \quad \text{, }n\geq0$$
+    En particulier, si $n=-1 :$
+    $$c_{-1}=\frac{1}{2\pi}\int_{\Gamma}\frac{f(z_0)}{(z-z_0)^{n+1}}dz \quad \text{(théorème des résidues)}$$
+    \item Le rayon de convergence est le plus grand nombre $R > 0$ tel que $f$ reste holomorphe dans $\mathcal{B}_R(z_0)$
+    \item Réciproquement, si la fonction
+    $$f(z) := \sum_{n=0}^{\infty}c_n(z-z_0)^n$$
+    est bien définie dans $\mathcal{B}_\epsilon(z_0)$, alors $f$ est holomorphe dans $\mathcal{B}_\epsilon(z_0)$ et
+    $$f'(z) = \sum_{n=1}^{\infty}nc_n(z-z_0)^{n-1}$$
+\end{enumerate}
+
+\subsection{Règle de l'Hospital}
+\textbf{Corrolaire :} Soit $\Omega\subset\mathbb{C}$ ouvert, $z_0\in\Omega$\\
+$f,g : \Omega\to\mathbb{C}$ holomorphes, $f(z_0) = g(z_0) = 0$, $g'(z_0)\neq0$\\
+Alors :
+$$\lim_{z \to z_0} = \frac{f(z)}{g(z)} = \frac{f'(z_0)}{g'(z_0)}$$
+
+\subsection{Théorème de Laurent}
+\textbf{Théorème :} Soit $\Omega\subset\mathbb{C}$ ouvert, $z_0\in\Omega$, $f : \Omega\setminus\{z_0\}\to\mathbb{C}$ holomorphe\\
+Alors $f$ admet un développement en série de Laurent, c'est à dire $\exists\epsilon>0$, tel que :
+\begin{align*}
+    f(z) &= \sum_{n=-\infty}^{\infty}c_n(z-z_0)^n \quad \forall z \in \mathcal{B}_\epsilon(z_0)\setminus\{z_0\} \\
+    &=...+c_{-2}(z-z_0)^{-2}+c_{-1}(z-z_0)^{-1}+c_0+c_1(z-z_0)^1+... \\
+    &= L_{z_0}f(z)
+\end{align*}
+
+\subsection{Définitions}
+\textbf{Définitions :}
+\begin{enumerate}
+    \item $L_{z_0}f(z) = \sum_{n=-\infty}^{\infty}c_n(z-z_0)^n$ est la série de Laurent de $f$ en $z_0$
+    \item $\sum_{n=0}^{\infty}c_n(z-z_0)$ est la partie régulière de la série de Laurent
+    \item $\sum_{-\infty}^{-1}c_n(z-z_0)$ est la partie singulière de la série de Laurent
+    \item Le coefficient $c_{-1}$ est le résidu de $f$ en $z_0$, on le note $c_{-1} = Res_{z_0}(f)$
+    \item Le rayon de convergence $R>0$ est le plus grand $\epsilon$ tel que
+    $$f(z) = L_{z_0}f(z) \quad \text{, } \forall z \in \mathcal{B}_R(z_0) \setminus \{z_0\}$$
+    \item On dit que $z_0$ est :
+    \begin{enumerate}
+        \item un point régulier si la partie singulière de $L_{z_0}(f) = 0$ (Laurent = Taylor)
+        \item un pôle d'ordre $m \in \mathbb{N}^*$ si la partie singulière commence à la puissance $-m$, c'est à dire si on a un nombre fini de $c_{-n}$ :
+        $$L_{z_0}f(z) = \underbrace{c_{-m}(z-z_0)^{-m}}_{\neq0}+...+c^{-1}(z-z_0)^{-1}+c_0+c_1(z-z_0)^1+...$$
+        \item une singularité essentielle isolée (SEI) si la partie singulière de la série de Laurent admet un nombre infini de $c_{-n} \neq 0$
+    \end{enumerate}
+\end{enumerate}
+
+\subsection{Propositions}
+\textbf{Propositions :}
+\begin{enumerate}
+    \item Soit $\Omega \subset \mathbb{C}$ ouvert, $z_0 \in \Omega$, $f : \Omega \setminus \{z_0\} \to \mathbb{C}$ holomorphe et $m \in \mathbb{N}^*$\\
+        Alors $z_0$ est un pôle d'ordre $m$ si et seulement si la fonction
+    $$F(z) := f(z)(z-z_0)^m$$
+    est holomorphe dans $\Omega \setminus \{z_0\}$ et $\lim_{z \to z_0}F(z)$ existe et est non nulle
+    \item Soit $f(z) = \frac{p(z)}{q(z)}$, où $p$ et $q$ sont des fonctions holomorphes au voisinage de $z_0 \in \mathbb{C}$ qui est un zéro d’ordre $k$ de $p$ et un zéro d’ordre $l$ de $q$
+    \begin{itemize}
+        \item Si $l > k$ alors $z_0$ est un pôle d'ordre $l-k$ de $f$
+        \item Si $l \leq k$ alors $z_0$ est un point régulier de $f$
+    \end{itemize}
+\end{enumerate}

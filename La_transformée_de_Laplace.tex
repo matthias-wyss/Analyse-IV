@@ -1,0 +1,65 @@
+\section{La transformée de Laplace}
+\subsection{Définition}
+\textbf{Définition :} Soit $f : [0;\infty[ \to \mathbb{R}$ et $\gamma_0 \in \mathbb{R}^*_+$ tels que
+$$\int_0^{\infty}|f(t)|e^{-\gamma_0 t}dt < \infty$$
+La transformée de Laplace de $f$ est :
+$$\mathcal{L}(f) : \{z \in \mathbb{C} \mid \Re(z) \geq \gamma_0 \} \to \mathbb{C}$$
+$$\mathcal{L}(f)(z) := \int_0^{\infty}f(t)e^{-zt}dt$$
+
+\subsection{Remarques}
+\textbf{Remarques :}
+\begin{enumerate}
+    \item $\gamma_0$ est un abcisse de convergence
+    \item $\mathcal{L}(f)(z)$ est bien définie si $x = \Re(z) \geq \gamma_0$ \\
+    En effet :
+    \begin{align*}
+        \bigg{|} \int_0^{\infty}f(t)e^{-zt}dt \bigg{|} &\leq \int_0^{\infty}|f(t)|.|e^{-zt}|dt \\
+        &= \int_0^{\infty}|f(t)|.\underbrace{e^{-xt}}_{\leq e^{-\gamma_0 t}} \\
+        &\leq \int_0{\infty}|f(t)|.e^{-\gamma_0 t}dt \\
+        &\leq \infty \quad \Rightarrow \text{L'intégrale converge}
+    \end{align*}
+    \item La transformée de Laplace généralise la transformée de Fourier. \\
+    Donc si $f \in [0;\infty[ \to \mathbb{R}$ admet une transformée de Fourier, alors elle admet une transformée de Laplace. \\
+    En effet, $f$ doit satisfaire : 
+    $$\int_0^{\infty}|f(t)|dt < \infty \Leftrightarrow \gamma_0 = 0$$
+    \item On ne prendra que des fonctions à support positif définie pour $t \geq 0$, et nulles si $t < 0$. Cela peut se généraliser avec la transformée bilatérale (hors cours).
+    \item Formule à savoir :
+    $$\lim_{t \to \infty}|e^{-zt}| = \lim_{t \to \infty}e^{-\overbrace{\Re(z)}^{>0}t} = 0$$
+\end{enumerate}
+
+\subsection{Propriétés de $\mathcal{L}$}
+Soit $f,g : [0;\infty[ \to \mathbb{R}$ avec un même abscisse de convergence $\gamma_0 > 0$ et $a,b \in \mathbb{R}$
+\begin{enumerate}
+    \item \textbf{Linéarité :} $\mathcal{L}(af+bg) = a \mathcal{L}(f) + b \mathcal{L}(g)$
+    \item \textbf{Décalage :} si $a > 0$ et $h(t) := e^{-bt}f(at)$, alors
+    $$\mathcal{L}(h)(z) := \frac{1}{a} \mathcal{L}(f)\bigg{(}\frac{z+b}{a}\bigg{)}$$
+    Avec $\Re(z) > a\gamma_0-b$
+    \item \textbf{Convolution :} si $h(t) := (f \ast g)(t) = \int_0^t f(s)g(t-s)ds$, alors
+    $$\mathcal{L}(h) = \mathcal{L}(f \ast g) = \mathcal{L}(f) \mathcal{L}(g)$$
+    \item \textbf{Transformée des dérivées}
+    \begin{itemize}
+        \item si $f \in \mathcal{C}^1([0;\infty[)$ et $\int_0^{\infty} |f'(t)|e^{-\gamma_0 t}dt < \infty$, alors
+        $$\mathcal{L}(f')(z) = z \mathcal{L}(f)(z) - f(0)$$
+        \item si $f \in \mathcal{C}^n([0;\infty[)$ et $\int_0^{\infty} |f^{(k)}(t)|e^{-\gamma_0 t}dt < \infty \quad \forall$ $1 \leq k \leq n$, alors
+        $$\mathcal{L}(f^{(n)})(z) = z^n \mathcal{L}(f) - z^{n-1}f(0) - z^{n-2}f'(0) -...- zf^{(n-2)}(0) - f^{(n-1)}(0)$$
+    \end{itemize}
+    \item \textbf{Primitives :} si $h(t) := \int_0^{\infty}f(s)ds$; $\int_0^{\infty} |h'(t)|e^{-\gamma_0 t}dt < \infty$, alors
+    $$\mathcal{L}(h)(z) = \frac{1}{z}\mathcal{L}(f)(z)$$
+    \item \textbf{Fourier :} si $\gamma_0 = 0$, alors
+    $$\mathcal{F}(f)(\alpha) = \frac{1}{2\pi}\mathcal{L}(f)(\underbrace{0+i\alpha}_z)$$
+    \item \textbf{Holomorphisme :} $\mathcal{L}(f)$ est holomorphe dans $\{z \in \mathbb{C} \mid \Re(z) > \gamma_0\}$ \\
+    et $\mathcal{L}'(f)(z) = \bigg{(}\int_{-\infty}^{\infty}f(t)e^{-tz}dt \bigg{)}' = \int_{-\infty}^{\infty}(-tf(t))e^{-tz}dt = \mathcal{L}(-tf(t))(z)$
+    $$\mathcal{L}^{(n)}(f)(z) = \mathcal{L}((-t)^nf(t))(z)$$
+\end{enumerate}
+
+\subsection{Formule d'inversion}
+Soit $f : [0;\infty[ \to \mathbb{R}$ continue, $\gamma_0 \in \mathbb{R}_+^*$ son abscisse de convergence. \\
+Soit $F(z) = \mathcal{L}(f)(z)$ et $\gamma > \gamma_0$ tel que $\int_{-\infty}^{\infty}|F(\gamma + is)|ds < \infty$ (idem Fourier) \\
+Alors :
+$$f(t) = \mathcal{L}^{-1}(F)(t) = \frac{1}{2\pi}\int_{-\infty}^{\infty}(\gamma + is)e^{t(\gamma+is)}ds$$
+
+\subsection{Corrolaire}
+\textbf{Corrolaire :} Soit $F = \frac{N}{D} : \mathbb{C} \setminus \{z_1,...,z_n\} \to \mathbb{C}$ \\
+avec $N$ et $D$ des polynômes tels que $deg(D) > deg(N) + 1$ \\
+Alors $\forall t \geq 0 :$
+$$\mathcal{L}^{-1}(F)(t) = \sum_{i=1}^n Res_{z_i}(F(z)e^{tz})$$

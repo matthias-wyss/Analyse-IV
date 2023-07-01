@@ -1,0 +1,48 @@
+\section{Application aux équations différentielles}
+\subsection{Problème général}
+Soit le problème général
+$$
+\begin{cases}
+    au''(t)+bu'(t)+cu(t)=f(t) \\
+    u(0)=u_0,\quad u'(0)=u_1
+\end{cases}
+$$
+Alors
+$$u(t) = \mathcal{L}^{-1}\bigg{(}\frac{\mathcal{L}(f)+au_0z+au_1+bu_0}{az^2+bz+c}\bigg{)}$$
+
+\subsection{Sturm-Liouville 1}
+\textbf{Proposition :} Le problème
+$$
+\begin{cases}
+    u''(t)+\lambda u(t)=0\quad \text{, }t \in [0;L] \text{, avec } L > 0 \\
+    u(0) = u(L) = 0 \quad \text{(condition de Dirichlet)}
+\end{cases}
+$$
+admet des solutions non-triviales $(u\neq0)$ si et seulement si $\lambda=(\frac{n\pi}{L})^{^2} \quad \text{, }n \in \mathbb{N}^*$ \\
+et la solution est donc :
+$$u(t) = \beta \sin \bigg{(} \frac{tn\pi}{L} \bigg{)} \quad \text{, } t \in [0;L]$$
+
+\subsection{Sturm-Liouville 2}
+\textbf{Proposition :} Le problème
+$$
+\begin{cases}
+    u''(t)+\lambda u(t)=0\quad \text{, }t \in [0;L] \text{, avec } L > 0 \\
+    u'(0) = u'(L) = 0 \quad \text{(condition de Neuman)}
+\end{cases}
+$$
+admet des solutions non-triviales $(u\neq0)$ si et seulement si $\lambda=(\frac{n\pi}{L})^{^2} \quad \text{, }n \in \mathbb{N}$ \\
+et la solution est donc :
+$$u(t) = \alpha \cos \bigg{(} \frac{tn\pi}{L} \bigg{)} \quad \text{, } t \in [0;L]$$
+
+\subsection{Sturm-Liouville 3}
+\textbf{Proposition :} Le problème
+$$
+\begin{cases}
+    u''(t)+\lambda u(t)=0\quad \text{, }t \in [0;L] \text{, avec } L > 0 \\
+    u(0) = u(L) \\
+    u'(0) = u'(L)
+\end{cases}
+$$
+admet des solutions non-triviales $(u\neq0)$ si et seulement si $\lambda=(\frac{n2\pi}{L})^{^2} \quad \text{, }n \in \mathbb{N}$ \\
+et la solution est donc :
+$$u(t) = \alpha \cos \bigg{(} \frac{tn2\pi}{L} \bigg{)} + \beta \sin \bigg{(} \frac{tn2\pi}{L} \bigg{)} \quad \text{, } t \in [0;L]$$

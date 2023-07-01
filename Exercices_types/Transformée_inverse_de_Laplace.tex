@@ -1,0 +1,49 @@
+\subsection{Transformée inverse de Laplace}
+Calculer la transformée inverse de Laplace d’une fonction à l'aide des résidus ou des tables de la transformée de Laplace. \\
+(Série 10 exercices 2, 3 et 4) \\
+\\
+\textbf{Méthodologie :} (pour la méthode avec les résidus)
+\begin{itemize}
+    \item On pose $\widetilde{F}(z) = e^{tz}F(z)$
+    \item On détermine les pôles de $\widetilde{F}(z)$
+    \item On calcule les résidus de $\widetilde{F}(z)$ en chaque pôle
+    \item On utilise le corrolaire 6.5 pour calculer la transformée inverse de Laplace de $F$
+\end{itemize}
+\textbf{Exemple :} (série 10 exercice 4)
+Déterminer la transformée inverse de Laplace de
+$$F(z) = \frac{1}{z^3-9z}$$
+de 2 manières différentes :
+\begin{itemize}
+    \item[a)] En utilisant la table des transformées :
+    $$F(z) = \frac{1}{z(z^2-9)} = \frac{\alpha}{z} \frac{\beta z + \gamma}{z^2+9} = \frac{\alpha z^2 - 9 \alpha + \beta z^2 + \gamma z}{z(z^2-9)}$$
+    $$
+    \begin{cases}
+        z^2 &: \alpha + \beta = 0 \Rightarrow \beta = \frac{1}{9} \\
+        z &: \alpha = 0 \\
+        1 &: -9 \alpha = 1 \text{ } \Rightarrow \alpha = -\frac{1}{9}
+    \end{cases}
+    $$
+    $$F(z) = -\frac{1}{9} \frac{1}{z} + \frac{1}{9} \frac{z}{z^2-3^2}$$
+    $$\Rightarrow \quad \mathcal{L}^{-1}(F)(t) = -\frac{1}{9} + \frac{1}{9} \cosh(3t)$$
+    \item[b)] En utilisant les résidus : \\
+    On pose
+    $$\widetilde{F}(z) = e^{tz}F(z) = \frac{e^{tz}}{z(z^2-9)} = \frac{e^{tz}}{z(z+3)(z-3)}$$
+    On détermine les pôles de $\widetilde{F}(z)$ :
+    \begin{align*}
+        z_0 = 0 \quad &\text{pôle d'ordre 1} \\
+        z_1 = 3 \quad &\text{pôle d'ordre 1} \\
+        z_2 = -3 \quad &\text{pôle d'ordre 1}
+    \end{align*}
+    On calcule les résidus de $\widetilde{F}(z)$ en $z_0$, $z_1$ et $z_2$ :
+    \begin{align*}
+        Res_0(\widetilde{F}) &= \widetilde{F}(z)z \big{|}_{z=0} = \frac{e^{tz}}{z^2-9} \bigg{|}_{z=0} = -\frac{1}{9} \\
+        Res_3(\widetilde{F}) &= \widetilde{F}(z)(z-3) \big{|}_{z=3} = \frac{e^{tz}}{z(z+3)} \bigg{|}_{z=3} = \frac{e^{3t}}{18} \\
+        Res_{-3}(\widetilde{F}) &= \widetilde{F}(z)(z+3) \big{|}_{z=-3} = \frac{e^{tz}}{z(z-3)} \bigg{|}_{z=-3} = \frac{e^{-3t}}{18}
+    \end{align*}
+    Par le corrolaire 6.5 on obtient :
+    \begin{align*}
+        \mathcal{L}^{-1}(F)(t) &= \sum_{i} Res_{z_i}(\widetilde{F}(z)) \\
+        &= -\frac{1}{9} + \frac{e^{3t}}{18} + \frac{e^{-3t}}{18} \\
+        &= -\frac{1}{9} + \frac{1}{9} \cosh(3t)
+    \end{align*}
+\end{itemize}

@@ -1,0 +1,90 @@
+\section{Fonctions holomorphes}
+\subsection{Fonctions complexes}
+$f$ : $\mathbb{C}\to\mathbb{C}$\\
+$z\mapsto f(z) = f(x+iy)$\\
+On note :
+$$f(z)=f(x+iy)=u(x,y)+iv(x,y)=\Re(f(x+iy))+i\Im(f(x+iy))$$
+avec $u,v\in \mathbb{R}^2\to\mathbb{R}$
+
+\subsection{Limite}
+\textbf{Définition :} Soit $f$ : $\mathbb{C}\to\mathbb{C}$, $z_0\in\mathbb{C}$
+\begin{enumerate}
+    \item La limite de $f(z)$ quand $z$ tend vers $z_0$ est l'unique nombre $L\in\mathbb{C}$ tel que\\
+    $\forall\epsilon>0$, $\exists\delta>0$ tel que si $|z-z_0|<\delta$, alors $|f(z)-L|<\epsilon$\\
+    On note $L = \lim_{z \to z_0} f(z)$
+    \item $f$ est continue en $z_0$ si $\lim_{z \to z_0}f(z) = f(z_0)$
+\end{enumerate}
+
+\subsection{Fonctions holomorphes}
+\textbf{Définition :} Soit $\Omega\subset\mathbb{C}$ ouvert, $f$ : $\Omega\to\mathbb{C}$, $z_0\in\Omega$
+\begin{enumerate}
+    \item $f$ est holomorphe en $z_0$ si la limite suivante existe :
+    $$\lim_{h\to0}\frac{f(z_0+h)-f(z_0)}{h}=f'(z_0)$$
+    \item $f$ est holomorphe sur $\Omega$ si $f$ est holomorphe sur tout $z_0\in\Omega$
+\end{enumerate}
+
+\subsection{Équations de Cauchy-Riemann}
+\textbf{Théorème :} Soit $\Omega\subset\mathbb{C}$ ouvert, $f=u+iv$ : $\Omega\to\mathbb{C}$\\
+$f$ est holomorphe sur $\Omega$ si et seulement si les équations de Cauchy-Riemann sont satisfaites :
+$$
+\begin{cases}
+    \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y} \quad &(u_x=v_y) \\
+    \frac{\partial v}{\partial x} = -\frac{\partial u}{\partial y} \quad &(v_x=-u_y) \quad \text{, }u,v\in\mathcal{C}^1(\Omega) 
+\end{cases}
+$$
+De plus, on a :
+\begin{align*}
+    f'(z)&=u_x+iv_x\\
+    &=v_y-iu_y
+\end{align*}
+
+\subsection{Remarques}
+\begin{enumerate}
+    \item Les règles de dérivations dans $\mathbb{R}$ sont aussi vraies dans $\mathbb{C}$ $(+,-,\cdot,\div,\circ)$
+    \item La limite de $f'(z_0)$ s'écrit aussi
+    $$\lim_{z\to z_0}\frac{f(z)-f(z_0)}{z-z_0}=f'(z_0)$$
+    \item Cette limite est beaucoup plus "forte" que la limite dans $\mathbb{R}$\\
+    Dans $\mathbb{R}$, on a 2 chemins (limites) pour avoir $f'(x_0)$ (limites à gauche et à droite).\\
+    Dans $\mathbb{C}$, on a une infinité de chemins, c'est une notion plus puissante.
+    \item On verra que $f$ holomorphe $\Rightarrow u,v\in\mathcal{C}^{\infty}$
+    \item Les équations de Cauchy-Riemann disent que :
+    \begin{itemize}
+        \item $u(x,y)$ est un potentiel de $(v_y;-v_x)$
+        \item $v(x,y)$ est un potentiel de $(-u_y;u_x)$
+    \end{itemize}
+\end{enumerate}
+
+\subsection{Exponentielle complexe}
+\textbf{Définition (Identité d'Euler) :}
+\begin{align*}
+    e^z &= \sum^\infty_{n=0}\frac{z^n}{n!}\\
+    &= e^{x+iy}\\
+    &= e^x e^{iy}\\
+    &= e^x(\cos y + i\sin y)
+\end{align*}
+\textbf{Théorème :}
+\begin{itemize}
+    \item $e^z$ holomorphe dans $\mathbb{C}$ et $(e^z)' = e^z$
+    \item $|e^z| = e^x$, $|e^{iy}|=1$
+    \item $e^{z+2\pi ni} = e^z$, $\forall n \in \mathbb{Z}$
+\end{itemize}
+
+\subsection{Logarithme complexe}
+\textbf{Définition :}
+La fonction $\log$ complexe est définie par
+$$\log : \mathbb{C}\setminus\{0\}\to\mathbb{C}$$
+$$\log(z) := \underbrace{log(|z|)}_{\in\mathbb{R}} + i\underbrace{\arg(z)}_{\in[-\pi;\pi]}$$
+avec le log réel et la détermination principal de l'argument. \\
+\textbf{Théorème :}
+\begin{itemize}
+    \item $\log(e^z) = z$, si $\Im(z) \in ]-\pi;\pi[$ 
+    \item $e^{\log(z)} = z$, si $z\neq 0$
+    \item $\log(z)$ est holomorphe dans $\mathbb{C}\setminus\{z=x+iy\mid x \leq 0, y=0\}$ \\
+    ($\mathbb{C}$ sans le demi-axe des réels négatifs)
+\end{itemize}
+\textbf{Remarque :} $\log(z)$ est en fait discontinue sur l'axe des réels négatifs :
+\begin{align*}
+    \lim_{t \to 0^+}\log(-1+it) = \lim_{t \to 0^+}(\underbrace{\log(|-1+it|)}_{\to \log(1)=0} + i\underbrace{\arg(-1+it)}_{\to \pi}) &= \underbrace{i\pi}_{_{_{\neq}}} \\
+    \lim_{t\to 0^+}\log(-1-it) = \lim_{t \to 0^+}(\underbrace{\log(|-1-it|)}_{\to 0}) + i\underbrace{\arg(-1-it)}_{\to -\pi}) &= \overbrace{-i\pi}
+\end{align*}
+$$\Rightarrow \log(z)\text{ n'est pas continu !}$$

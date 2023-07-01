@@ -1,0 +1,50 @@
+\section{Intégration complexe}
+\subsection{Courbes}
+\textbf{Définitions :}
+\begin{itemize}
+    \item L'ensemble $\Gamma\subset\mathbb{C}$ est une courbe (régulière) s'il existe\\
+    $[a;b]\subset\mathbb{R}$, $\gamma : [a;b]\to\Gamma\subset\mathbb{C}$\\
+    $\gamma(t) = \alpha(t) + i\beta(t)$ une paramétrisation de $\Gamma$ telle que :
+    \begin{enumerate}
+        \item $\Gamma = \{\gamma(t)\mid t\in[a;b]\}$
+        \item $\gamma \in \mathcal{C}^1(]a;b[, \mathbb{C})$
+        \item $\gamma'(t) = \alpha'(t) + i\beta'(t) \neq 0$  $\forall t \in ]a;b[$
+        \item $\gamma$ est injective sur $]a;b[$, $\gamma(t_1)\neq\gamma(t_2)$, si $t_1\neq t_2$
+    \end{enumerate}
+    \item Une courbe est fermée si $\gamma(a)=\gamma(b)$\\
+    On note $int(\Gamma)$ l'intérieur de $\Gamma$ qui est l'ouvert borné dont le bord est confondu avec $\Gamma$
+    \item $\Gamma$ est régulière par morceau si
+    $$\Gamma = \bigcup_{i=1}^n\Gamma_i$$
+    Avec $\Gamma_i$ des courbes régulières et connectées
+\end{itemize}
+
+\subsection{Intégrale complexe}
+\textbf{Définitions :} Soit $\Omega\subset\mathbb{C}$ ouvert, $f : \Omega\to\mathbb{C}$ continue
+\begin{enumerate}
+    \item Soit $\Gamma\subset\Omega$ une courbe régulière, alors l'intégrale de $f$ le long de $\Gamma$ est le nombre :
+    $$\int_{\Gamma}fdz := \int_a^bf(\gamma(t))\gamma'(t)dt$$
+    \item Si $\Gamma = \bigcup_{i=1}^n\Gamma_i$ régulière par morceaux, et $\Gamma\subset\Omega$, alors :
+    $$\int_{\Gamma}fdz = \sum_{i=1}^n\int_{\Gamma_i}fdz$$
+\end{enumerate}
+\textbf{Remarque :} L'intégrale dépend du sens de parcours.\\
+\textbf{Définition :} Une courbe fermée $\Gamma$ de paramétrisation $\gamma : [a;b]\to\mathbb{C}$ est orientée positivement si elle "laisse l'intérieur de $\Gamma$ à gauche".
+
+\subsection{Théorème de Cauchy}
+\textbf{Théorème :} Soit $\Omega$ ouvert, $f : \Omega\to\mathbb{C}$ holomorphe, $\Gamma$ courbe fermée, régulière par morceaux, avec $int(\Gamma) \cup \Gamma \in \Omega$
+\begin{enumerate}
+    \item \textbf{Théorème de Cauchy}
+    $$\int_{\Gamma}fdz = 0$$
+    \item \textbf{Formule intégrale de Cauchy (FIC)}\\
+    Si $\Gamma$ est orientée positivement et si $z_0\in int(\Gamma)$
+    $$\int_{\Gamma}\frac{f(z)}{z-z_0}dz = 2\pi i f(z_0)$$
+    \item \textbf{FIC (BIS)}
+    $$\int_{\Gamma}\frac{f(z)}{(z-z_0)^{n+1}}dz = 2\pi i \frac{f^{(n)}(z_0)}{n!} \quad\quad n\in\mathbb{N}$$
+\end{enumerate}
+
+\subsection{Remarques}
+\begin{enumerate}
+    \item Le théorème de Cauchy s'énonce parfois avec l'hypothèse $\Omega$ simplement connexe ("pas de trou").
+    \item Réciproquement, si $\int_{\Gamma}f(z)dz = 0$, $\forall\Gamma\subset\Omega$ fermée, alors $f$ est holomorphe (Téorème de Moréra).
+    \item Dans la FIC, $z_0$ est appelé une singularité, et l'intégrale ne dépend que de $f(z)$ si $z_0\in int(\Gamma)$
+    \item La FIC implique que $f$ est infiniment dérivable !
+\end{enumerate}

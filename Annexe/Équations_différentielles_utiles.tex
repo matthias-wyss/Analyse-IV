@@ -1,0 +1,27 @@
+\section{Équations différentielles utiles}
+\begin{enumerate}
+    \item L'équation différentielle :
+    $$\psi'(t) + \lambda \psi(t) = 0$$
+    admet les solutions :
+    $$\psi_n(t) = e^{-\lambda t}$$
+    \item L'équation différentielle :
+    $$\frac{\psi'(t)}{\psi(t)} = \frac{-\lambda}{f(t)}$$
+    admet les solutions :
+    $$\psi_n(t) = f(t)^{-\lambda}$$
+    \item L'équation différentielle :
+    $$\psi''(t) + \lambda \psi(t) = 0$$
+    admet les solutions :
+    $$\psi_n(t) = 
+    \begin{cases}
+        \frac{\alpha_0}{2} + \frac{\beta_0}{2}t &\text{si } n = 0 \\
+        \alpha_n \cos(\sqrt{\lambda}t) + \beta_n \sin(\sqrt{\lambda}t) \quad &\text{si } n \geq 1
+    \end{cases}$$
+    \item Pour $\mu > 0$, $y > 0$, $\phi_0 \in \mathbb{R}$, le problème :
+    $$\begin{cases}
+        \phi''(y) - \mu \phi(y) = 0 \\
+        \phi(0) = \phi_0 \\
+        \lim_{y \to \infty} \phi(y) = 0
+    \end{cases}$$
+    admet la solution :
+    $$\phi(y) = \phi_0 e^{-\sqrt{\mu}y}$$
+\end{enumerate}

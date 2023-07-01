@@ -1,0 +1,64 @@
+\subsection{Résidu en un point}
+Calculer le résidu d’une fonction complexe en un point. \\
+(Série 7 exercices 2 et 4) \\
+\\
+\textbf{Méthodologie :}
+\begin{itemize}
+    \item Si $f(z)$ est une fonction rationnelle, c'est-à-dire si $f(z) = \frac{p(z)}{q(z)}$, alors on calcule le résidu de $f$ en $z_0$ avec la formule :
+    $$Res_{z_0}(f) = Res_{z_0}\bigg{(}\frac{p}{q}\bigg{)} = \frac{p(z_0)}{q'(z_0)}$$
+    \item Sinon on calcule le résidu de $f$ en $z_0$ avec la formule classique :
+    $$\frac{1}{(m-1)!}\frac{d^{(m-1)}}{dz}(f(z)(z-z_0)^m)\bigg{|}_{z=z_0} = Res_{z_0}(f)$$
+    avec $z_0$ un pôle d'ordre $m \geq 1$
+\end{itemize}
+\textbf{Exemple :} (série 7 exercice 2b) \\
+Soit $\Gamma \subset \mathbb{C}$ une courbe simple, fermée et régulière par morceaux. Discuter, en fonction de $\Gamma$, la valeur de l'intégrale :
+$$I = \int_{\Gamma} \frac{(z+1)^2}{(z-3)^3}dz$$
+On a :
+$$I = \int_{\Gamma} f(z)dz \quad \text{, avec } f(z) = \frac{z^2+2z+1}{(z-3)^3}$$
+On remarque que $3$ est un pôle d'ordre $3$ \\
+On calcule le résidu de $f$ en $z_0 = 3$ avec la formule à résidu :
+\begin{align*}
+    Res_3(f) &= \frac{1}{2!} \frac{d^2}{dz^2}(f(z)(z-3)^3) \bigg{|}_{z=3} \\
+    &= \frac{1}{2} \frac{d^2}{dz^2}(z^2+2z+1) \bigg{|}_{z=3} \\
+    &= 1
+\end{align*}
+\begin{itemize}
+    \item Si $3 \in int(\Gamma)$, alors par le théorème des résidus on obtient :
+    \begin{align*}
+        I &= 2\pi i Res_3(f) \\
+        &= 2\pi i
+    \end{align*}
+    \item Si $3 \notin int(\Gamma) \cup \Gamma$, alors par le théorème de Cauchy on a $I = 0$
+    \item Si $3 \in \Gamma$, alors $I$ n'est pas bien définie
+\end{itemize}
+\textbf{Exemple :} (série 7 exercice 4) \\
+Soit $\Gamma \subset \mathbb{C}$ une courbe simple, fermée et régulière par morceaux, contenue dans le disque de rayon $2$, centré en $z=0$. Discuter, en fonction de $\Gamma$, la valeur de l'intégrale :
+$$I = \int_{\gamma} \tan(z)dz$$
+On a :
+$$\tan(z) = \frac{\sin(z)}{\cos(z)} = \frac{p(z)}{q(z)}$$
+On remarque que $z_0 = \frac{\pi}{2}$ et $z_1 = -\frac{\pi}{2}$ sont des pôles d'ordre $1$ \\
+On calcule les résidus de $f$ en $z_0$ et $z_1$ avec la formule de la fonction rationnelle  :
+\begin{align*}
+    Res_{z_0}(f) &= Res_{z_0}\bigg{(}\frac{p}{q}\bigg{)} = \frac{\sin(z_0)}{(\cos(z_0))'} = \frac{\sin(\frac{\pi}{2})}{-\sin(\frac{\pi}{2})} = -1 \\
+    Res_{z_1}(f) &= Res_{z_1}\bigg{(}\frac{p}{q}\bigg{)} = \frac{\sin(z_1)}{(\cos(z_1))'} = \frac{\sin(-\frac{\pi}{2})}{-\sin(-\frac{\pi}{2})} = -1
+\end{align*}
+\begin{itemize}
+    \item Si $z_0 \in int(\Gamma)$ et $z_1 \in int(\Gamma)$, alors par le théorème des résidus on obtient :
+    \begin{align*}
+        I &= 2\pi i (Res_{z_0}(f) + Res_{z_1}(f)) \\
+        &= 2\pi i (-1-1) \\
+        &= -4\pi i
+    \end{align*}
+    \item Si $z_0 \in int(\Gamma)$ et $z_1 \notin int(\Gamma) \cup \Gamma$, alors par le théorème des résidus on obtient :
+    \begin{align*}
+        I &= 2\pi i Res_{z_0}(f) \\
+        &= -2\pi i
+    \end{align*}
+    \item Si $z_0 \notin int(\Gamma) \cup \Gamma$ et $z_1 \in int(\Gamma)$, alors par le théorème des résidus on obtient :
+    \begin{align*}
+        I &= 2\pi i Res_{z_0}(f) \\
+        &= -2\pi i
+    \end{align*}
+    \item Si $z_0 \notin int(\Gamma) \cup \Gamma$ et $z_1 \notin int(\Gamma) \cup \Gamma$, alors par le théorème de Cauchy on a $I = 0$
+    \item Si $z_0 \in \Gamma$ ou $z_1 \in \Gamma$, alors $I$ n'est pas bien définie
+\end{itemize}

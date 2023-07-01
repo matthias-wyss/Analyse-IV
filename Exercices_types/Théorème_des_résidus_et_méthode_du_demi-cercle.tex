@@ -1,0 +1,88 @@
+\subsection{Théorème des résidus et méthode du demi-cercle}
+Calculer des intégrales réelles à l’aide du théorème des résidus et de la méthode du demi-cercle. \\
+(Série 8 exercices 4 et 5, série 9 exercice 1) \\
+\\ 
+\textbf{Méthodologie :} On veut calculer $I = \int_{-\infty}^{\infty} f(x) dx$
+\begin{itemize}
+    \item Si $f(x)$ est de la forme 
+    $$\int_{-\infty}^{\infty}\frac{N(x)}{D(x)}e^{i\alpha x} dx$$
+    avec $N(x), D(x)$ des polynômes tels que $deg(D)-deg(N) \geq 2$ et $D(x) = \beta(x) + \delta$, $\delta \in \mathbb{R}$\\
+    Alors on choisit notre demi-cercle $\Gamma_R$ de rayon $R$ en fonction du signe de $\alpha$ :
+    \begin{itemize}
+        \item Si $\alpha > 0 : \Gamma_R$ le demi-cercle supérieur
+        \item Si $\alpha < 0 : \Gamma_R$ le demi-cercle inférieur (\faExclamationTriangle\hspace{1pt} orientation)
+        \item Si $\alpha = 0 :$ peu importe
+    \end{itemize}
+    \item On pose $z = re^{i\theta}$ et on montre avec l'inégalité triangulaire inverse ($^{\Delta \text{inv}})$ que :
+    $$|f(z)| \leq \frac{N(z)}{|\beta(z)| - \delta}$$
+    \item On note $\Gamma_R = C_R \cup L_R$, avec $C_R$ le demi-cercle ouvert supérieur ou inférieur, et $L_R$ le segment réel $[-R;R]$
+    \item On choisit la paramétrisation $\gamma(t)$ de $C_R$ en fonction de notre demi-cercle :
+    \begin{align*}
+        C_R = \{\gamma(t) = re^{it} \mid t : 0 \to \pi\} \quad &\text{si } \Gamma_R \text{ est le demi-cercle supérieur} \\
+        C_R = \{\gamma(t) = re^{it} \mid t : \pi \to 2\pi\} \quad &\text{si } \Gamma_R \text{ est le demi-cercle inférieur}
+    \end{align*}
+    \item On montre à l'aide de la proposition 5.3 et de l'inégalité prouvée au 2ème point que :
+    $$\lim_{R \to \infty}\bigg{|}\int_{C_R} f(z)dz\bigg{|} = 0$$
+    \item On détermine les pôles de $f(z)$, on conserve seulement ceux à l'intérieur de $\Gamma_R$ et on détermine leur ordre
+    \item On calcule les résidus des pôles conservés
+    \item On calcule $\int_{\Gamma_R} f(z) dz$ avec le théorème des résidus
+    \item On connaît maintenant la valeur de
+    $$\int_{\Gamma_R} f(z) dz = \underbrace{\int_{C_R} f(z) dz}_{\overset{R \to \infty}{\longrightarrow} 0} \pm \int_{L_R} f(z) dz$$
+    avec le signe du haut si $\Gamma_R$ est le demi-cercle supérieur et le signe du bas si $\Gamma_R$ est le demi-cercle inférieur \\
+    De plus, on a
+    $$\int_{L_R} f(z) dz = \int_{\mp R}^{\pm R} f(z) dz \overset{R \to \infty}{\longrightarrow} \pm \int_{-\infty}^{\infty} f(z) dz = \pm \int_{-\infty}^{\infty} f(x) dx = \pm I$$
+    Donc :
+    $$I = \pm \int_{\Gamma_R} f(z) dz$$
+\end{itemize}
+\textbf{Exemple :} (série 9 exercice 1) \\
+Calculer
+$$\int_{-\infty}^{\infty} \frac{e^{-2ix}}{x^2+2}dx, \quad \int_{-\infty}^{\infty} \frac{\cos(2x)}{x^2+2}dx, \quad \int_{-\infty}^{\infty} \frac{\sin(2x)}{x^2+2}dx$$
+On a $f(x)$ de la forme :
+$$\int_{-\infty}^{\infty}\frac{N(x)}{D(x)}e^{i\alpha x} dx$$
+avec $\alpha = -2$, $N(x) = 1$, $D(x) = \beta(x) + \delta$, $\beta(x) = x^2$, $\delta = 2$ et on a bien $deg(D)-deg(N) \geq 2$ \\
+On choisit $\Gamma_R$ le demi-cercle inférieur car $\alpha < 0$ \\
+On pose $z = re^{i\theta}$ \\
+On montre $|f(z)| \leq \frac{N(z)}{|\beta(z)| - \delta}$ :
+\begin{align*}
+    |z^2+2| &\overset{\Delta\text{inv}}{\geq} \big{|} |z^2|-|2| \big{|} \\
+    &= r^2 - 2 \\
+    \Rightarrow \quad \bigg{|} \frac{e^{-2iz}}{z^2 + 2} \bigg{|} &\leq \bigg{|} \frac{e^{-2iz}}{r^2 - 2} \bigg{|} \\
+    &= \frac{1}{r^2 - 2}
+\end{align*}
+On note $\Gamma_R = C_R \cup L_R$, avec $C_R$ le demi-cercle ouvert inférieur, et $L_R$ le segment réel $[-R;R]$ \\
+On choisit la paramétrisation $\gamma(t)$ de $C_R$ :
+$$C_R = \{\gamma(t) = re^{it} \mid t : \pi \to 2\pi\}$$
+On montre $\lim_{R \to \infty} |\int_{C_R} f(z) dz| = 0$ :
+\begin{align*}
+    \bigg{|}\int_{C_R} f(z)dz\bigg{|} &\leq \int_\pi^{2\pi} |f(\gamma(t))||\gamma'(t)|dt \\
+    &= \int_\pi^{2\pi} \bigg{|} \frac{e^{-2ire^{it}}}{r^2e^{2it}+2} \bigg{|} |ire^{it}| dt \\
+    &\leq \int_\pi^{2\pi} \frac{1}{r^2 - 2} dt \\
+    &= \frac{\pi}{r^2 - 2} \\
+    &\overset{R \to \infty}{\longrightarrow} 0
+\end{align*}
+On a :
+$$f(z) = \frac{e^{-2iz}}{z^2+2}$$
+Les pôles de $f(z)$ sont $z_0 = i\sqrt{2}$ et $z_1 = -i\sqrt{2}$ \\
+Seul $z_1$ est à l'intérieur de $\Gamma_R$ et c'est un pôle d'ordre $1$ \\
+On calcule le résidu de $f$ en $z_1$ :
+$$Res_{-i\sqrt{2}}(f) = Res_{-i\sqrt{2}}\bigg{(}\frac{e^{-2iz}}{z^2+2}\bigg{)}= \frac{e^{-2iz}}{(z^2+2)'} \bigg{|}_{z=-i\sqrt{2}} = \frac{e^{-2i(-i\sqrt{2})}}{2(-i\sqrt{2})} = -\frac{e^{-2\sqrt{2}}}{2i\sqrt{2}}$$
+Par le théorème des résidus on obtient :
+$$\int_{\Gamma_R} f(z) dz = 2\pi i Res_{z_1} = -\frac{\pi e^{-2\sqrt{2}}}{\sqrt{2}}$$
+Vu que :
+$$
+\begin{cases}
+    \int_{\Gamma_R} f(z) dz &= \int_{C_R} f(z) dz - \int_{L_R} f(z) dz \\
+    \int_{L_R} f(z) dz &= \int_{R}^{-R} f(z) dz \overset{R \to \infty}{\longrightarrow} -\int_{-\infty}^{\infty} f(z) dz \\
+    \int_{C_R} f(z) dz &\overset{R \to \infty}{\longrightarrow} 0
+\end{cases}
+$$
+avec le signe $-$ car $\Gamma_R$ est le demi-cercle inférieur \\
+Alors :
+$$I = -\int_{\Gamma_R} f(z) dz = \frac{\pi e^{-2\sqrt{2}}}{\sqrt{2}}$$
+On a aussi :
+$$I = \int_{-\infty}^{\infty} \frac{e^{-2ix}}{x^2+2}dx = \int_{-\infty}^{\infty} \frac{\cos(2x)}{x^2+2}dx - i \int_{-\infty}^{\infty} \frac{\sin(2x)}{x^2+2}dx$$
+Donc :
+\begin{align*}
+    \int_{-\infty}^{\infty} \frac{\cos(2x)}{x^2+2}dx &= \frac{\pi e^{-2\sqrt{2}}}{\sqrt{2}}\\
+    \int_{-\infty}^{\infty} \frac{\sin(2x)}{x^2+2}dx &= 0
+\end{align*}

@@ -1,0 +1,62 @@
+\subsection{EDP et la méthode de séparation des variables}
+Résoudre des EDPs à l’aide de la méthode de séparation des variables. \\
+(Série 12 exercices 1, 2, 3, 4 et 5) \\
+\\
+\textbf{Méthodologie :}
+\begin{itemize}
+    \item On pose $u(x,t) = \phi(x)\psi(t)$
+    \item On reconnaît un problème de Sturm-Liouville avec la variable $\phi(x)$ et une autre équation différentielle connue avec la variable $\psi(t)$
+    \item On trouve les solutions non-triviales $\phi_n(x)$ du problème de Sturm-Liouville, qui dépendent de certains coefficients
+    \item On trouve les solutions $\psi_n(t)$ de cette deuxième équation différentielle
+    \item On a les $u_n(x,t) = \phi_n(x)\psi_n(t)$, qui dépendent de certains coefficients, qui sont solutions du problème général (sans la contrainte des conditions initiales)
+    \item On utilise le fait que la somme des $u_n(x,t)$ est aussi solution
+    \item On détermine les coefficients précédents avec la ou les conditions initiales
+    \item On obtient la solution $u(x,t)$
+\end{itemize}
+\textbf{Exemple :} (série 12 exercice 1) \\
+Trouver la solution $u(x,t)$ du problème suivant :
+$$
+\begin{cases}
+    u_t(x,t) = u_{xx}(x,t) \quad &\text{, } x \in ]0;\pi[ \text{ et } t > 0 \\
+    u_x(0,t) = u_x(\pi,t) = 0 \quad &\text{, } t > 0 \\
+    u(x,0) = \cos(2x) \quad &\text{, } x \in ]0;\pi[
+\end{cases}
+$$
+On pose $u(x,t) = \phi(x)\psi(t)$ et on obtient :
+\begin{align*}
+    \begin{cases}
+        \phi(x)\psi'(t) = \phi''(x)\psi(t) \\
+        \phi'(0) = \psi(t) = \phi'(\pi)\psi(t) = 0 \\
+        \phi(x)\psi(0) = \cos(2x)
+    \end{cases}
+    \Rightarrow \quad
+    \begin{cases}
+        \frac{\psi'(t)}{\psi(t)} \frac{\phi''(x)}{\phi(x)} = -\lambda \text{ (cst)} \\
+        \phi'(0) = \phi'(\pi) = 0
+    \end{cases}
+    \Rightarrow \quad
+    &\begin{cases}
+            \phi''(x) + \lambda \phi(x) = 0 \tag{1} \\
+            \phi'(0) = \phi'(\pi) = 0
+    \end{cases} \\
+    &\begin{aligned}
+        \quad \psi'(t) + \lambda \psi(t) = 0 \qquad \qquad \qquad \text{ }(2)
+    \end{aligned}
+\end{align*}
+L'équation $(1)$ se résout avec Sturm-Liouville 2 \\
+Le problème de Sturm-Liouville 2 admet des solutions $\phi_n(x)$ non-triviales : \\
+$$\text{si } \lambda = \bigg{(} \frac{n\pi}{\pi} \bigg{)}^2 = n^2 \quad \text{alors} \quad \phi_n(t) = \alpha_n \cos \bigg{(} \frac{n\pi}{\pi}x \bigg{)} = \alpha_n \cos(nx) \text{, } \alpha_n \in \mathbb{R}$$
+On pose donc $\lambda = n^2$ \\
+L'équation $(2)$ admet les solutions :
+$$\psi_n(t) = e^{-\lambda t} = e^{-n^2t}$$
+On a donc :
+$$u_n(x,t) = \phi_n(x)\psi_n(t) = \alpha_n\cos(nx)e^{-n^2t}$$
+qui est une solution pour tout $\mathbb{N}^*$ des 2 premières équations du problème \\
+La somme des $u_n(x,t)$ est aussi solution :
+$$u(x,t) = \sum_{n=0}^{\infty} u_n(x,t) = \frac{\alpha_0}{2} + \sum_{n=1}^{\infty} \alpha_n \cos(nx)e^{-n^2t}$$
+On trouve les coefficients $\alpha_n \in \mathbb{R}$ avec la condition initiale $u(x,0) = \cos(2x)$ :
+$$u(x,0) = \cos(2x) = \frac{\alpha_0}{2} + \sum_{n=1}^{\infty} \alpha_n \cos(nx) = \mathcal{F}_c(f)(x) \quad \text{la transformée de Fourier en cosinus}$$
+On a donc nécessairement :
+$$\alpha_2 = 1 \text{ et } \alpha_n = 0 \text{ } \forall n \neq 2$$
+On obtient donc la solution :
+$$u(x,t) = \cos(2x) e^{-4t}$$

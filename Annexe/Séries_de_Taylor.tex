@@ -1,0 +1,29 @@
+\section{Séries de Taylor}
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|c|c|c|c|}
+    \hline
+    Fonction & Série de Taylor & Premiers termes & Convergence \\
+    \hline
+    $\displaystyle e^x$ & $\displaystyle \sum_{n=0}^{\infty} \frac{x^n}{n!}$ & $\displaystyle 1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+\frac{x^4}{4!}+...$ & $\displaystyle \forall x \in \mathbb{R}$ \\
+    \hline
+    $\displaystyle \log(x)$ & $\displaystyle \sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n}(x-1)^n$ &  & $\displaystyle \forall x \in ]0;2]$ \\
+    \hline
+    $\displaystyle log(1+x)$ & $\displaystyle \sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n}x^n$ & $\displaystyle x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}+...$ & $\displaystyle \forall x \in ]-1;1[$ \\
+    \hline
+    $\displaystyle \frac{1}{1-x}$ & $\displaystyle \sum_{n=0}^{\infty} x^n$ & $\displaystyle 1+x^2+x^3+x^4+...$ & $\displaystyle \forall x \in ]-1;1[$ \\
+    \hline
+    $\displaystyle \sin(x)$ & $\displaystyle \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)!}x^{2n+1}$ & $\displaystyle x-\frac{x^3}{3!}+\frac{x^5}{5!}-\frac{x^7}{7!}+...$ & $\displaystyle \forall x \in \mathbb{R}$ \\
+    \hline
+    $\displaystyle \cos(x)$ & $\displaystyle \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n)!}x^{2n}$ & $\displaystyle 1-\frac{x^2}{2!}+\frac{x^4}{4!}-\frac{x^6}{6!}+...$ & $\displaystyle \forall x \in \mathbb{R}$ \\
+    \hline
+    $\displaystyle \sinh(x)$ & $\displaystyle \sum_{n=0}^{\infty} \frac{1}{(2n+1)!}x^{2n+1}$ & $\displaystyle x+\frac{x^3}{3!}+\frac{x^5}{5!}+\frac{x^7}{7!}+...$ & $\displaystyle \forall x \in \mathbb{R}$ \\
+    \hline
+    $\displaystyle \cosh(x)$ & $\displaystyle \sum_{n=0}^{\infty} \frac{1}{(2n)!}x^{2n}$ & $\displaystyle 1+\frac{x^2}{2!}+\frac{x^4}{4!}+\frac{x^6}{6!}+...$ & $\displaystyle \forall x \in \mathbb{R}$ \\
+    \hline
+    $\displaystyle \arctan(x)$ & $\displaystyle \sum_{n=0}^{\infty} \frac{(-1)^n}{2n+1}x^{2n+1}$ & $\displaystyle x-\frac{x^3}{3}+\frac{x^5}{5}-\frac{x^7}{7}+...$ & $\displaystyle \forall x \in [-1;1]$ \\
+    \hline
+    $\displaystyle (1+x)^m$ & $\displaystyle 1+ \sum_{n=1}^{\infty} \frac{m(m-1)...(m-(n-1))}{n!}x^{n}$ & $\displaystyle 1+mx+\frac{m(m-1)}{2}x^2+...$ & $\displaystyle \forall x \in ]-1;1[ \text{, } m \in \mathbb{R}$ \\
+    \hline
+  \end{tabular}
+\end{table}

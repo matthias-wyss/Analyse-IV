@@ -1,0 +1,67 @@
+\subsection{Théorème des résidus et méthode du cercle}
+Calculer des intégrales réelles à l’aide du théorème des résidus et de la méthode du cercle. \\
+(Série 7 exercice 5, Série 8 exercice 1, 2 et 3) \\
+\\
+\textbf{Méthodologie :} On veut calculer $I = \int_0^{2\pi} f(\theta) d\theta$
+\begin{itemize}
+    \item Faire un changement de variable :
+    \begin{align*}
+        z &= e^{i\theta} \\
+        dz &= ie^{i\theta}d\theta = izd\theta \Rightarrow d\theta = \frac{1}{iz}dz
+    \end{align*}
+    \item Exprimer les fonctions trigonométriques sous leur forme exponentielle, puis faire le changement de variable
+    \item Calculer et simplifier $\widetilde{f}(z) = \frac{1}{iz}f(\theta)$, en fonction de $z$
+    \item Déterminer les pôles de $\widetilde{f}(z)$
+    \item Sélectionner seulement ceux se trouvant à l'intérieur du cercle unitaire $\Gamma$, c'est-à-dire les $z_i$ tels que $|z_i| < 1$, et déterminer leur ordre
+    \item Calculer les résidus de chaque pôle sélectionné
+    \item Calculer $I$ à l'aide du théorème des résidus
+\end{itemize}
+\textbf{Exemple :} (série 7 exercice 5) \\
+Calculer
+$$I = \int_0^{2\pi} \frac{\cos(\theta)\sin(2\theta)}{5 + 3\cos(\theta)}d\theta$$
+On a :
+$$f(\theta) = \frac{\cos(\theta)\sin(2\theta)}{5 + 3\cos(\theta)}$$
+On procède au changement de variable :
+\begin{align*}
+    z &= e^{i\theta} \\
+    dz &= ie^{i\theta}d\theta = izd\theta \Rightarrow d\theta
+    \frac{1}{iz}dz
+\end{align*}
+On exprime les fonctions trigonométriques sous leur forme exponentielle :
+\begin{align*}
+    \cos(\theta) &= \frac{e^{i\theta} + e^{-i\theta}}{2} = \frac{1}{2}\bigg{(}z + \frac{1}{z}\bigg{)} \\
+    \cos(2\theta) &= \frac{e^{i2\theta} + e^{-i2\theta}}{2} = \frac{1}{2}\bigg{(}z^2 + \frac{1}{z^2}\bigg{)} \\
+    \sin(2\theta) &= \frac{e^{i2\theta} - e^{-i2\theta}}{2i} = \frac{1}{2i}\bigg{(}z^2 - \frac{1}{z^2}\bigg{)}
+\end{align*}
+Donc on a :
+$$f(\theta) = \frac{\frac{1}{2}(z + \frac{1}{z}) \frac{1}{2i}(z^2 - \frac{1}{z^2})}{5 + \frac{3}{2} (z^2 + \frac{1}{z^2})}$$
+On calcule $\widetilde{f}(z)$ :
+\begin{align*}
+    \widetilde{f}(z) &= \frac{1}{iz} f(\theta) \\
+    &= \frac{1}{iz} \bigg{(} \frac{\frac{1}{2}(z + \frac{1}{z}) \frac{1}{2i}(z^2 - \frac{1}{z^2})}{5 + \frac{3}{2} (z^2 + \frac{1}{z^2})} \bigg{)} \\
+    &= \frac{1}{iz} \bigg{(} \frac{\frac{1}{4i}(z + \frac{1}{z})(z^2 - \frac{1}{z^2})}{\frac{3}{2} (z^2 + \frac{10}{3} + \frac{1}{z^2})} \bigg{)} \\
+    &= \frac{1}{iz} \frac{(z + \frac{1}{z})(z^2 - \frac{1}{z^2})}{4i} \frac{2}{3(z^2 + \frac{10}{3} + \frac{1}{z^2})} \\
+    &= -\frac{(z + \frac{1}{z})(z^2 - \frac{1}{z^2})}{6z(z^2 + \frac{10}{3} + \frac{1}{z^2})} \\
+    &= -\frac{z^3(z + \frac{1}{z})(z^2 - \frac{1}{z^2})}{z^36z(z^2 + \frac{10}{3} + \frac{1}{z^2})} \\
+    &= -\frac{(z^2 + 1)(z^4 - 1)}{6z^2(z^4 + \frac{10}{3}z^2 + 1)} \\
+    &= -\frac{(z^2 + 1)(z^4 - 1)}{6z^2(z^2+3)(z^2+\frac{1}{3})} \\
+    &= \frac{-z^6-z^4+z^2+1}{6z^6+20z^4+6z^2}
+\end{align*}
+On détermine les pôles de $\widetilde{f}(z)$ :
+\begin{align*}
+    &6z^2(z^2+3)(z^2+\frac{1}{3}) = 0 \\
+    \Rightarrow \quad &z_0 = 0 \text{, } z_1 = i\sqrt{\frac{1}{3}} \text{, } z_2 = -i\sqrt{\frac{1}{3}} \text{, } z_3 = i\sqrt{3} \text{, } z_4 = -i\sqrt{3}
+\end{align*}
+Les pôles se trouvant à l'intérieur du cercle unitaire sont $z_0 = 0$ qui est un pôle d'ordre $2$, $z_1 = i\sqrt{\frac{1}{3}}$ qui est un pôle d'ordre $1$ et $z_2 = -i\sqrt{\frac{1}{3}}$ qui est un pôle d'ordre $1$ \\
+On calcule les résidus de $f$ en $z_0$, $z_1$ et $z_2$ :
+\begin{align*}
+    Res_0(\widetilde{f}) &= \frac{d}{dz} \bigg{(} \widetilde{f}(z)(z-0)^2 \bigg{)} \bigg{|}_{z=0} = \frac{d}{dz} \bigg{(} \frac{-z^6-z^4+z^2+1}{6z^6+20z^4+6z^2} \bigg{)} \bigg{|}_{z=0} = 0 \\
+    Res_{i\sqrt{\frac{1}{3}}}(\widetilde{f}) &= \widetilde{f}(z)\bigg{(}z-i\sqrt{\frac{1}{3}}\bigg{)} \bigg{|}_{z=i\frac{1}{\sqrt{3}}} = -\frac{(z^2 + 1)(z^4 - 1)}{6z^2(z^2+3)(z+i\frac{1}{\sqrt{3}})} \bigg{|}_{z=i\frac{1}{\sqrt{3}}} = i\frac{1}{6\sqrt{3}} \\
+    Res_{-i\sqrt{\frac{1}{3}}}(\widetilde{f}) &= \widetilde{f}(z)\bigg{(}z+i\sqrt{\frac{1}{3}}\bigg{)} \bigg{|}_{z=-i\frac{1}{\sqrt{3}}} = -\frac{(z^2 + 1)(z^4 - 1)}{6z^2(z^2+3)(z-i\frac{1}{\sqrt{3}})} \bigg{|}_{z=-i\frac{1}{\sqrt{3}}} = -i\frac{1}{6\sqrt{3}}
+\end{align*}
+Par le théorème des résidus, on obtient :
+\begin{align*}
+    I &= 2\pi i (Res_0 + Res_{i\sqrt{\frac{1}{3}}} + Res_{-i\sqrt{\frac{1}{3}}}) \\
+    &= 2 \pi i (0 + i\frac{1}{6\sqrt{3}} -i\frac{1}{6\sqrt{3}}) \\
+    &= 0
+\end{align*}

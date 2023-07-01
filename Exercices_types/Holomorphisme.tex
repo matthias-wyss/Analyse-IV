@@ -1,0 +1,52 @@
+\subsection{Holomorphisme}
+Utiliser les équations de Cauchy-Riemann pour déterminer si une fonction complexe est holomorphe. \\
+(Série 1 exercice 4, série 2 exercices 1 et 2) \\
+\\
+\textbf{Méthodologie :}
+\begin{itemize}
+    \item Décomposer en partie réelle et partie imaginaire la fonction $f(z)$ :
+    $$f(z) = u(x,y) + iv(x,y)$$
+    \item Déterminer les dérivées partielles selon $x$ et $y$ pour chaque partie :
+    \begin{align*}
+    u_x(x,y) &= \text{ }? \\
+    v_x(x,y) &= \text{ }? \\
+    u_y(x,y) &= \text{ }? \\
+    v_y(x,y) &= \text{ }?
+    \end{align*}
+    \item Observer si les dérivées partielles obtenues satisfont les équation de Cauchy-Riemann :
+    \begin{align*}
+    u_x(x,y) &\overset{?}{=} v_y(x,y) \\
+    v_x(x,y) &\overset{?}{=} -u_y(x,y)
+    \end{align*}
+\end{itemize}
+\textbf{Exemple : }(série 1 exercice 4e)\\
+Déterminer si $f(z) = \cos(z)$ est holomorphe, si oui donner sa dérivée.
+\begin{align*}
+    f(z) = \cos(z) &= \frac{e^{iz} + e^{-iz}}{2} \\
+    &= \frac{1}{2} \bigg{(} e^{-y+ix} + e^{y-ix} \bigg{)} \\
+    &= \frac{1}{2} \bigg{(} e^{-y}(\cos(x) +i\sin(x)) + e^y(cos(x) - i\sin(x)) \bigg{)}
+\end{align*}
+Donc on a la décomposition $f(z) = u(x,y) + iv(x,y)$ avec :
+\begin{align*}
+    u(x,y) = \frac{1}{2} \cos(x)(e^{-y} + e^y) \\
+    v(x,y) = \frac{1}{2} \sin(x)(e^{-y} - e^y)
+\end{align*}
+On dérive :
+\begin{align*}
+    u_x(x,y) &= -\frac{1}{2} \sin(x)(e^{-y} + e^y) \\
+    v_x(x,y) &= \frac{1}{2} \cos(x)(e^{-y} - e^y) \\
+    u_y(x,y) &= -\frac{1}{2} \cos(x)(e^{-y} - e^y) \\
+    v_y(x,y) &= -\frac{1}{2} \sin(x)(e^{-y} + e^y)
+\end{align*}
+On a $u_x(x,y) = v_y(x,y)$ et $v_x(x,y) = -u_y(x,y)$, les équations de Cauchy-Riemann sont vérifiées. Donc $f(z)$ est holomorphe. \\
+On calcule sa dérivée :
+\begin{align*}
+    f'(z) &= u_x(x,y) + iv_x(x,y) \\
+    &= -\frac{1}{2} \sin(x)(e^{-y} + e^y) + i\frac{1}{2} \cos(x)(e^{-y} - e^y) \\
+    &= -\frac{1}{2} e^{-y} (\sin(x) - i\cos(x)) -\frac{1}{2} e^{y} (\sin(x) + i\cos(x)) \\
+    &= -\frac{1}{2i} e^{-y} (\cos(x) + i\sin(x)) -\frac{1}{2i} e^{y} (-\cos(x) + i\sin(x)) \\
+    &= -\frac{1}{2i} e^{-y} (\cos(x) + i\sin(x)) +\frac{1}{2i} e^{y} (\cos(-x) + i\sin(-x)) \\
+    &= \frac{1}{2i}(e^{-y+ix} + e^{y-ix}) \\
+    &= \frac{1}{2i}(e^{iz} + e^{-iz}) \\
+    &= \sin(z)
+\end{align*}

@@ -1,0 +1,37 @@
+\section{Rappels et notations}
+
+\subsection{Les nombres imaginaires $\mathbb{C}$}
+$$\mathbb{C}=\{z=x+iy\mid x,y\in\mathbb{R}\} \quad \text{, } i^2=-1$$
+\begin{align*}
+    x=\Re(z)\quad&\text{la partie réelle} \\
+    y=\Im(z)\quad&\text{la partie imaginaire}
+\end{align*}
+
+\subsection{Les différentes formes complexes}
+\begin{align*}
+    z = x+iy\quad&\text{la forme cartésienne} \\
+    z = r(\cos\theta+i\sin\theta)\quad&\text{la forme polaire} \\
+    z = re^{i\theta}\quad&\text{la forme exponentielle} \\
+    r = \sqrt{x^2+y^2}\quad&\text{le module de z} \\
+    \theta = \arg(z)\quad&\text{l'argument de z} \\
+\end{align*}
+La fonction $\arg(z)$ est une fonction multivoque, définie à $2\pi$ près. \\
+La détermination principale de l'argument est le seul angle dans $]-\pi;\pi[$ \reflectbox{$\in$} $\arg(z)$\\
+$$
+\arg(z) = 
+\begin{cases}
+    \arctan\left(\frac{y}{x}\right) & \text{si } x > 0 \\
+    \arctan\left(\frac{y}{x}\right) + \pi & \text{si } x < 0 \text{ et } y \geq 0 \\
+    \arctan\left(\frac{y}{x}\right) - \pi & \text{si } x < 0 \text{ et } y < 0 \\
+    +\frac{\pi}{2} & \text{si } x = 0 \text{ et } y > 0 \\
+    -\frac{\pi}{2} & \text{si } x = 0 \text{ et } y < 0 \\
+    \text{indéfini} & \text{si } x = 0 \text{ et } y = 0 \\
+\end{cases}
+$$
+
+\subsection{Identité d'Euler}
+\begin{align*}
+    e^{i\theta}&=\cos\theta+i\sin\theta \\
+    |e^{i\theta}|&=\sqrt{\cos^2\theta+\sin^2\theta} \\
+    \arg(e^{i\theta})&=\theta\text{ (mod }2\pi)
+\end{align*}

@@ -1,0 +1,61 @@
+\subsection{EDP et la méthode par transformée de Fourier}
+Résoudre des EDPs à l’aide de la méthode par transformée de Fourier. \\
+(Série 13 exercices 1, 2, 3, 4) \\
+\\
+\textbf{Méthodologie :}
+\begin{itemize}
+    \item Poser $$v(\alpha,y) = \frac{1}{2\pi} \int_{-\infty}^{\infty} u(x,y) e^{-i\alpha x}dx = \mathcal{F}_x(u)(\alpha)$$
+    \item Appliquer la transformée de Fourier aux équations du problème
+    \item Reconnaître une forme d'équation différentielle connue pour $v(\alpha,y)$ et trouver la solutions
+    \item Calculer la transformée inverse $u(x,y) = \mathcal{F}_x^{-1}(v(\alpha,y))(x)$ en réduisant à des formes connues de la table
+\end{itemize}
+\textbf{Exemple :} (série 13 exercice 1) \\
+Soit $\Omega = \{(x,y) \in \mathbb{R}^2 \mid y > 0\}$. Résoudre à l'aide de la transformée de Fourier le problème suivant :
+$$
+\begin{cases}
+    \Delta u(x,y) = u_{xx}(x,y) + u_{yy}(x,y) = 0 \\
+    u(x,0) = f(x) = \frac{8x^2}{(1+x^2)^2} \\
+    \lim_{y \to \infty} u(x,y) = 0
+\end{cases}
+$$
+On pose :
+\begin{align*}
+    v(\alpha,y) &= \frac{1}{2\pi} \int_{-\infty}^{\infty} u(x,y) e^{-i\alpha x}dx = \mathcal{F}_x(u)(\alpha) \\
+    \widehat{f}(\alpha) &= 2\sqrt{2\pi} (1-\alpha) e^{-|\alpha|}
+\end{align*}
+On applique la tranformée de Fourier aux équations du problème :
+\begin{align*}
+    \Rightarrow
+    \begin{cases}
+        \mathcal{F}_x(u_{xx})(\alpha) = -\mathcal{F}_x(u_{yy})(\alpha) \\
+        \mathcal{F}_x(u(x,0))(\alpha) = \mathcal{F}_x(f)(\alpha) \\
+        \lim_{y \to \infty} \mathcal{F}_x(u)(\alpha) = 0
+    \end{cases}
+    \Rightarrow
+    \begin{cases}
+        (i\alpha)^2 v(\alpha,y) = -v_{yy}(\alpha,y) \\
+        v(\alpha,0) = \widehat{f}(\alpha) \\
+        \lim_{y \to \infty} v(\alpha,y) = 0
+    \end{cases}
+    \Rightarrow
+    \begin{cases}
+        v_{yy}(\alpha,y) - \alpha^2 v(\alpha,y) = 0 \tag{3} \\
+        v(\alpha,0) = \widehat{f}(\alpha) \\
+        \lim_{y \to \infty} v(\alpha,y) = 0
+    \end{cases}
+\end{align*}
+La solution de $(3)$ est donnée par :
+$$v(\alpha,y) = \widehat{f}(\alpha)e^{-|\alpha|y} = 2\sqrt{2\pi}(1-|\alpha|) e^{|\alpha|(1+y)}$$
+On calcule la transformée inverse en réduisant à des formes connues de la table :
+\begin{align*}
+    u(x,y) &= \mathcal{F}_x^{-1}(v(\alpha,y))(x) \\
+    &= \mathcal{F}_x^{-1}(2\sqrt{2\pi}(1-|\alpha|) e^{-|\alpha|(1+y)})(x) \\
+    &= \mathcal{F}_x^{-1} \bigg{(} 2\sqrt{2\pi} \bigg{(} \frac{1+y}{1+y} - |\alpha| \bigg{)} e^{-|\alpha|(1+y)} \bigg{)}(x) \\
+    &= \mathcal{F}_x^{-1} \bigg{(} 2\sqrt{2\pi} \bigg{(} \frac{1}{1+y} + \frac{y}{1+y} - |\alpha| \bigg{)} e^{-|\alpha|(1+y)} \bigg{)}(x) \\
+    &= \mathcal{F}_x^{-1} \bigg{(} 2\sqrt{2\pi} \bigg{(} \frac{1}{1+y} - |\alpha| \bigg{)} e^{-|\alpha|(1+y)} \bigg{)}(x) + \mathcal{F}_x^{-1} \bigg{(} 2\sqrt{2\pi} \bigg{(} \frac{y}{1+y}\bigg{)} e^{-|\alpha|(1+y)} \bigg{)}(x) \\
+    &= 2\mathcal{F}_x^{-1} \bigg{(} \sqrt{2\pi} \bigg{(} \frac{1}{1+y} - |\alpha| \bigg{)} e^{-|\alpha|(1+y)} \bigg{)}(x) + 4y \mathcal{F}_x^{-1} \bigg{(} \sqrt{\frac{\pi}{2}} \frac{e^{-|\alpha|(1+y)}}{1+y} \bigg{)}(x) \\
+    &= 2 \frac{4x^2}{((1+y)^2+x^2)} + 4y \frac{1}{x^2+(1+y)^2} \\
+    &= 4 \frac{y(1+y)^2+x^2(2+y)}{((1+y)^2+x^2)^2}
+\end{align*}
+
+

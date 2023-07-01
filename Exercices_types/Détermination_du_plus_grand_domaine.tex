@@ -1,0 +1,38 @@
+\subsection{Détermination du plus grand domaine}
+Donner la partie réelle ou imaginaire d’une fonction holomorphe, utiliser les équations de Cauchy-Riemann pour trouver toutes les parties imaginaires ou réelles possibles. \\
+(Série 2 exercice 3, série 5 exercice 2) \\
+\\
+\textbf{Méthodologie :}
+\begin{itemize}
+    \item Séparer la partie réelle de la partie imaginaire de la fonction
+    \item Établir les équations de Cauchy-Riemann et les résoudre 
+    \item Intégrer $u_x(x,y)$ ou $v_x(x,y)$ en fonction de $x$, ou $u_y(x,y)$ ou $v_y(x,y)$ en fonction de $y$ pour obtenir $u(x,y)$ ou $v(x,y)$ (ne pas oublier d'ajouter la constante qui dépend de $y$ ou $x$)
+    \item Déterminer la constante en dérivant le résultat précédent et en le comparant avec l'équation de Cauchy-Riemann correspondante
+    \item Déterminer le plus grand domaine possible en recherchant des restrictions ou des conditions sur les variables $x$ et $y$ qui pourraient rendre la fonction indéfinie ou non holomorphe
+\end{itemize}
+\textbf{Exemple : }(série 2 exercice 3) \\
+Déterminer le plus grand domaine de $\mathbb{C}$ où la fonction $f(z) = \log(1+z^2)$ est holomorphe. \\
+\\
+$z \mapsto 1+z^2$ est holomorphe sur $\mathbb{C}$ \\
+$w \mapsto \log(w)$ est holomorphe sur $\mathbb{C} \setminus \{w \in \mathbb{C} \mid \Im(w) = 0, \Re(w) \leq 0\}$ \\
+On pose $w = 1+z^2$ et on détermine l'ensemble des z tels que $\Im(w) = 0, \Re(w) \leq 0$ \\
+$w = 1+z^2 = 1 + x^2 -y^2 + i2xy$
+\begin{align*}
+    \begin{cases}
+        \Im(w) = 2xy = 0 \\
+        \Re(w) = 1 + x^2 -y^2 \leq 0
+    \end{cases}
+    \quad
+    \Leftrightarrow
+    \quad
+    \begin{cases}
+        x = 0 \\
+        y^2 \geq 1
+    \end{cases}
+\end{align*}
+($y=0$ et $x^2+1 \leq 0$ est à exclure) \\
+Donc le plus grand domaine est :
+\begin{align*}
+    D &= \{z = x+iy \mid x = 0, y^2 \geq 1\} \\
+    &= \{z \in \mathbb{C} \mid x, \Re(z) = 0, |\Im(z)| \geq 1\}
+\end{align*}

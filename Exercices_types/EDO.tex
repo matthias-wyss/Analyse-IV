@@ -1,0 +1,33 @@
+\subsection{EDO}
+Résoudre des EDOs (problèmes de Cauchy ou Sturm-Liouville) à l’aide de la transformée de Laplace. \\
+(Série 10 exercices 5 et 6, série 11 exercices 1 et 5) \\
+\\
+\textbf{Méthodologie :}
+\begin{itemize}
+    \item Appliquer la transformée de Laplace à chaque fonctions, dérivées, convolutions de l'équation
+    \item Utiliser les propriétés de la transformée de Laplace pour faire apparaître des formes connues de la table des transformées
+    \item Utiliser la table des transformées de Laplace pour résoudre l'équation
+\end{itemize}
+\textbf{Exemple :} (série 11 exercice 1) \\
+Utiliser les méthodes de la transformée de Laplace et la table  des transformées pour trouver une solution $y(t)$ de l'équation intégrale :
+$$
+\begin{cases}
+    14y'(t) + 13y(t) + \int_{0}^{t} y(s) e^{\frac{13}{14}(t-s)} ds = e^{\frac{13}{14}t} \quad \text{, } t \geq 0 \\
+    y(0) = 0
+\end{cases}
+$$
+On pose $f(t) = e^\frac{13}{14}t$ \\
+On a donc :
+\begin{align*}
+    &\Rightarrow 14 \mathcal{L}(y') + \mathcal{L}(y) + \mathcal{L}(y \ast f) = \mathcal{L}(f) \\
+    &\Rightarrow 14(z \mathcal{L}(y) - y(0)) + 13 \mathcal{L}(y) + \mathcal{L}(y) \mathcal{L}(f) = \mathcal{L}(f) \\
+    &\Rightarrow \mathcal{L}(y)\bigg{(}14z + 13 + \frac{1}{z - \frac{13}{14}}\bigg{)} = \frac{1}{z - \frac{13}{14}} \\
+    &\Rightarrow \mathcal{L}(y) = \frac{\frac{1}{z-\frac{13}{14}}}{14z + 13 + \frac{1}{z - \frac{13}{14}}} \\
+    &\Rightarrow \mathcal{L}(y) = \frac{1}{z-\frac{13}{14}} \frac{1}{\frac{14z^2 -13z +13z -\frac{13^2}{14} +1}{z-\frac{13}{14}}} \\
+    &\Rightarrow \mathcal{L}(y) = \frac{1}{z-\frac{13}{14}} \frac{z-\frac{13}{14}}{14z^2 - \frac{155}{14}} \\
+    &\Rightarrow \mathcal{L}(y) = \frac{\frac{1}{14}}{z^2 - \frac{155}{196}} \\
+    &\Rightarrow \mathcal{L}(y) = \frac{1}{14} \sqrt{\frac{196}{155}} \frac{\sqrt{\frac{155}{196}}}{z^2 - \frac{155}{196}} \\
+    &\Rightarrow \mathcal{L}(y) = \frac{1}{\sqrt{155}} \frac{\sqrt{\frac{155}{196}}}{z^2 - \frac{155}{196}}
+\end{align*}
+Et donc on a :
+$$y(t) = \frac{1}{\sqrt{155}} \sinh \bigg{(} \sqrt{\frac{155}{196}t} \bigg{)}$$

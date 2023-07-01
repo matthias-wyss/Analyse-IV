@@ -1,0 +1,28 @@
+\subsection{Intégration complexe}
+Calculer des intégrales complexes à l’aide de la définition. \\
+(Série 3 exercice 6) \\
+\\
+\textbf{Méthodologie :}
+\begin{itemize}
+    \item Choisir une paramétrisation $\gamma(t)$ de $\Gamma$ :
+    $$\Gamma = \{\gamma(t) = \text{ } ? \mid t : a \to b\}$$
+    \item Calculer l'intégrale avec la définition :
+    $$\int_{\Gamma}fdz := \int_a^bf(\gamma(t))\gamma'(t)dt$$
+\end{itemize}
+\textbf{Exemple : }(série 3 exercice 6) \\
+Calculer
+$$I = \int_{\Gamma}(z^2+1)dz$$
+où $\Gamma$ est le segment joignant $1$ à $1+i$ \\
+\\
+On choisit une paramétrisation $\gamma(t)$ de $\Gamma$ :
+$$\Gamma = \{\gamma(t) = 1+it \mid t : 0 \to 1\}$$
+On calcule l'intégrale :
+\begin{align*}
+    I &= \int_0^1 f(\gamma(t)) \gamma'(t) dt \\
+    &= \int_0^1((1+it)^2 +1) i \text{ }dt \\
+    &= \int_0^1(2 + 2it -t^2) i \text{ }dt \\
+    &= \int_0^1 2i -2t - it^2 dt \\
+    &= \bigg{[}2it - t^2 - \frac{it^3}{3}\bigg{]}_0^1 \\
+    &= 2i - 1 - \frac{i}{3} \\
+    &= -1 + \frac{5i}{3}
+\end{align*}
