@@ -1,6 +1,6 @@
 \subsection{Détermination du plus grand domaine}
 Donner la partie réelle ou imaginaire d’une fonction holomorphe, utiliser les équations de Cauchy-Riemann pour trouver toutes les parties imaginaires ou réelles possibles. \\
-(Série 2 exercice 3, série 5 exercice 2) \\
+(Série 2 exercice 3, 4 et 5, série 5 exercice 2) \\
 \\
 \textbf{Méthodologie :}
 \begin{itemize}
@@ -35,4 +35,40 @@ Donc le plus grand domaine est :
 \begin{align*}
     D &= \{z = x+iy \mid x = 0, y^2 \geq 1\} \\
     &= \{z \in \mathbb{C} \mid x, \Re(z) = 0, |\Im(z)| \geq 1\}
+\end{align*}
+\textbf{Exemple :} (série 2 exercice 5) \\
+Trouver une fonction holomorphe $f : \mathbb{C} \to \mathbb{C}$ dont la partie réelle est :
+$$u(x,y) = e^{x^2-y^2}\cos(2xy)$$
+Exprimer $f$ en fonction de $z=x+iy$ \\
+On dérive $u_x(x,y)$ et $u_y(x,y)$ :
+\begin{align*}
+    u_x(x,y) &= 2xe^{x^2-y^2}\cos(2xy)-e^{x^2-y^2}2y\sin(2xy) \\
+    &= 2e^{x^2-y^2}(x\cos(2xy) - y\sin(2xy)) \\
+    u_y(x,y)& = -2ye^{x^2-y^2}\cos(2xy)-e^{x^2-y^2}2x\sin(2xy) \\
+    &= -2e^{x^2-y^2}(y\cos(2xy)+x\sin(2xy))
+\end{align*}
+Les équations de Cauchy-Riemann donne :
+\begin{align*}
+    v_y(x,y) &= u_x(x,y) = 2e^{x^2-y^2}(x\cos(2xy) - y\sin(2xy)) \\
+    v_x(x,y) &= -u_y(x,y) = 2e^{x^2-y^2}(y\cos(2xy)+x\sin(2xy))
+\end{align*}
+On intègre $v_x(x,y)$ en fonction de $x$ :
+\begin{align*}
+    v(x,y) &= \int v_x(x,y) dx \\
+    &= \int 2e^{x^2-y^2}(y\cos(2xy)+x\sin(2xy)) dx \\
+    &= e^{x^2-y^2}\sin(2xy) + \alpha(y)
+\end{align*}
+On dérive $v(x,y)$ en fonction de $y$ :
+$$v_y(x,y) = -2ye^{x^2-y^2}\sin(2xy)+e^{x^2-y^2}\cos(2xy) + \alpha'(y)$$
+On compare avec le $v_y(x,y)$ des équations de Cauchy-Riemann pour déterminer $\alpha(y)$ :
+$$\Rightarrow \alpha'(y) = 0 \Rightarrow \alpha(y) = y_0 \in \mathbb{R}$$
+On a donc :
+$$v(x,y) = e^{x^2-y^2}\sin(2xy) + y_0$$
+Et donc :
+\begin{align*}
+    f(z) = u(x,y) +iv(x,y) &= e^{x^2-y^2}\cos(2xy) + i(e^{x^2-y^2}\sin(2xy)+y_0) \\
+    &= e^{x^2-y^2}(\cos(2xy) +i\sin(2xy)) +iy_0 \\
+    &= e^{x^2-y^2}e^{i2xy} +iy_0 \\
+    &= e^{x^2+i2xy-y^2} +iy_0 \\
+    &= e^{z^2} + iy_0
 \end{align*}
