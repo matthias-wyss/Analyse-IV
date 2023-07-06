@@ -90,11 +90,24 @@ Le problème :
 $$
 \begin{cases}
     u_{tt}(x,t) = c^2u_{xx}(x,t) \quad &\text{, } x \in ]0;L[ \to \mathbb{R} \text{, } t > 0 \\
-    u_x(0,t) = u_x(L,t) = 0 \quad &\text{, } t > 0 \\
+    u(0,t) = u(L,t) = 0 \quad &\text{, } t > 0 \\
     u(x,0) = f(x) \\
     u_t(x,0) = g(x)
 \end{cases}
 $$
 admet comme solution :
 $$u(x,t) = \sum_{n=1}^{\infty} \bigg{[} \alpha_n \cos \bigg{(} \frac{n\pi c}{L}t \bigg{)} + \beta_n \sin \bigg{(} \frac{n\pi c}{L}t \bigg{)} \bigg{]} \sin \bigg{(} \frac{n\pi}{L}x \bigg{)}$$
+avec $\alpha_n$ et $\beta_n$ les coefficients de Fourier en sinus de $f(x)$ et $g(x)$ respectivement \\
+\textbf{Proposition :} Soit $c \in \mathbb{R}^*$, $L > 0$, $f,g : [0;L] \to \mathbb{R}$, des fonctions $\mathcal{C}^3$ telles que $f(0) = f(L) = 0$, $g(0) = g(L) = 0$\\
+Le problème :
+$$
+\begin{cases}
+    u_{tt}(x,t) = c^2u_{xx}(x,t) \quad &\text{, } x \in ]0;L[ \to \mathbb{R} \text{, } t > 0 \\
+    u_x(0,t) = u_x(L,t) = 0 \quad &\text{, } t > 0 \\
+    u(x,0) = f(x) \\
+    u_t(x,0) = g(x)
+\end{cases}
+$$
+admet comme solution :
+$$u(x,t) = \frac{\alpha_0}{2} + \frac{\beta_0}{2}t + \sum_{n=1}^{\infty} \bigg{[} \alpha_n \cos \bigg{(} \frac{n\pi c}{L}t \bigg{)} + \beta_n \sin \bigg{(} \frac{n\pi c}{L}t \bigg{)} \bigg{]} \cos \bigg{(} \frac{n\pi}{L}x \bigg{)}$$
 avec $\alpha_n$ et $\beta_n$ les coefficients de Fourier en sinus de $f(x)$ et $g(x)$ respectivement
